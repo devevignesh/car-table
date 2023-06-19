@@ -8,7 +8,7 @@ import { TrashIcon } from "@heroicons/react/20/solid";
 import { Card, Title, BarChart, Subtitle } from "@tremor/react";
 import Table, { AvatarCell, SelectColumnFilter, StatusPill } from "../components/table";
 import Dialog from "../components/dialog";
-import SquigglyLines from "../components/SquigglyLines";
+import SquigglyLines from "../components/squigglyLines";
 
 const initialState = {
     brand: "",
