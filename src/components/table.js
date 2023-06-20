@@ -81,6 +81,25 @@ export function AvatarCell({ value, column, row }) {
     );
 }
 
+const getPlaceholder = id => {
+    const placeholderMap = {
+        engine: "1199 cc",
+        engineType: "1.2L",
+        maxPower: "118 bhp",
+        maxTorque: "170 Nm",
+        length: "3993 mm",
+        width: "1811 mm",
+        height: "1606 mm",
+        wheelBase: "2498 mm",
+        groundClearance: "209 mm",
+        kerbWeight: "1250 kg",
+        boot: "350 litres",
+        fuelTank: "44 litres"
+    };
+
+    return placeholderMap[id] || "";
+};
+
 // Create an editable cell renderer
 const EditableCell = ({
     value: initialValue,
@@ -107,10 +126,12 @@ const EditableCell = ({
 
     return (
         <input
+            type="text"
             className="block h-10 appearance-none rounded-md bg-white px-2 text-sm text-slate-800  placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
             value={value}
             onChange={onChange}
             onBlur={onBlur}
+            placeholder={getPlaceholder(id)}
         />
     );
 };

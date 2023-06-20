@@ -9,6 +9,7 @@ import { Card, Title, BarChart, Subtitle } from "@tremor/react";
 import Table, { AvatarCell, SelectColumnFilter, StatusPill } from "../components/table";
 import Dialog from "../components/dialog";
 import SquigglyLines from "../components/squigglyLines";
+import { calculateScores } from "./utils";
 
 const initialState = {
     brand: "",
@@ -52,12 +53,12 @@ const initialState = {
 const initialMock = [
     {
         brand: "Tata",
-        price: "11,00,000",
+        price: "1100000",
         model: "Nexon",
         variant: "XZ Plus",
         engine: "1199 cc",
         engineType: "1.2L Turbocharged Revotron",
-        cylinder: "3",
+        cylinder: "",
         fuelType: "Petrol",
         maxPower: "118 bhp @ 5500 rpm",
         maxTorque: "170 Nm @ 1750 rpm",
@@ -79,9 +80,9 @@ const initialMock = [
         sunroof: false,
         length: "3993 mm",
         width: "1811 mm",
-        height: "",
-        wheelBase: "",
-        groundClearance: "",
+        height: "1606 mm",
+        wheelBase: "2498 mm",
+        groundClearance: "209 mm",
         fuelTank: "44 litres",
         kerbWeight: "1250 kg",
         boot: "350 litres",
@@ -98,6 +99,7 @@ const initialMock = [
         cylinder: "4",
         maxPower: "82 bhp @ 6000 rpm",
         maxTorque: "114 Nm @ 4000 rpm",
+        transmission: "Manual",
         safetyRating: "NA",
         airBags: "4",
         abs: true,
@@ -126,49 +128,12 @@ const initialMock = [
     }
 ];
 
-const chartdata2 = [
-    {
-        name: "Engine and Transmission",
-        Nexon: 8,
-        Venue: 7
-    },
-    {
-        name: "Safety",
-        Nexon: 10,
-        Venue: 6
-    },
-    {
-        name: "Interior, Comfort & Convenience",
-        Nexon: 6,
-        Venue: 8
-    },
-    {
-        name: "Exterior",
-        Nexon: 9,
-        Venue: 5
-    },
-    {
-        name: "Features",
-        Nexon: 7,
-        Venue: 10
-    },
-    {
-        name: "Dimension & Weight",
-        Nexon: 4,
-        Venue: 6
-    },
-    {
-        name: "Capacity",
-        Nexon: 2,
-        Venue: 6
-    }
-];
-
 export default function Home() {
     const [carData, setCarData] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [skipPageReset, setSkipPageReset] = React.useState(false);
     const [modalState, setModalState] = useState(initialState);
+    const [barChartData, setBarChartData] = useState([]);
 
     const handleCheckbox = useCallback(
         (key, value, row) => {
@@ -748,6 +713,10 @@ export default function Home() {
         }
     }, []);
 
+    useEffect(() => {
+        setBarChartData(calculateScores(carData));
+    }, [carData]);
+
     return (
         <div className="w-full">
             <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal text-slate-900 sm:text-7xl">
@@ -784,12 +753,11 @@ export default function Home() {
                         <Title>Car comparison</Title>
                         <BarChart
                             className="mt-4"
-                            data={chartdata2}
-                            index="name"
-                            categories={["Nexon", "Venue"]}
+                            data={barChartData}
+                            index="category"
+                            categories={carData.map(car => car.model)}
                             minValue={0}
                             maxValue={10}
-                            showAnimation={false}
                         />
                     </Card>
                 </div>
@@ -838,7 +806,7 @@ export default function Home() {
                                     <input
                                         className="mt-2 mr-4 block h-10 w-full appearance-none rounded-md bg-white px-3 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
                                         type="text"
-                                        placeholder="10,00,000"
+                                        placeholder="1000000"
                                         value={modalState.price}
                                         onChange={event =>
                                             setModalState({

@@ -3,8 +3,10 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import cx from "classnames";
 import { Toaster } from "react-hot-toast";
+import { ErrorBoundary } from "react-error-boundary";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import ErrorFallback from "../components/errorFallback";
 
 const satoshi = localFont({
     src: "../../public/fonts/Satoshi-Variable.woff2",
@@ -24,10 +26,12 @@ export const metadata = {
         default: "Car Table",
         template: "%s | Car Table"
     },
-    description: "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, graphs, and widgets.",
+    description:
+        "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, graphs, and widgets.",
     openGraph: {
         title: "Supercharge your car shortlisting with Car Table",
-        description: "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, graphs, and widgets.",
+        description:
+            "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, graphs, and widgets.",
         url: "https://cartable.in",
         siteName: "Car Table",
         images: [
@@ -66,7 +70,7 @@ export default function RootLayout({ children }) {
                 <div className="flex max-w-screen-2xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
                     <Header />
                     <main className="mt-12 flex w-full flex-1 flex-col items-center px-4 text-center sm:mt-20">
-                        {children}
+                        <ErrorBoundary fallback={<ErrorFallback />}>{children}</ErrorBoundary>
                     </main>
                     <Footer />
                 </div>

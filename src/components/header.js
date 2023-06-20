@@ -13,7 +13,7 @@ export default function Header() {
                     width={25}
                     height={25}
                 />
-                <h1 className="ml-2 text-2xl font-bold tracking-tight sm:text-4xl">Car Table</h1>
+                <h1 className="ml-2 text-2xl font-bold tracking-tight sm:text-4xl text-slate-900">Car Table</h1>
             </Link>
         </header>
     );
