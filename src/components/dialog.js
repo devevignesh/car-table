@@ -5,11 +5,11 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 
 import Portal from './portal';
 
-export default function Modal({ show, title, children, setIsOpen }) {
+export default function Modal({ show, title, children, setIsOpen, inputRef }) {
 	return (
 		<Portal>
 			<Transition appear show={show} as={Fragment}>
-				<Dialog open={show} as="div" className={`relative z-20`} onClose={() => setIsOpen(false)}>
+				<Dialog initialFocus={inputRef} open={show} as="div" className={`relative z-20`} onClose={() => setIsOpen(false)}>
 					<Transition.Child
 						as={Fragment}
 						enter="ease-out duration-500"

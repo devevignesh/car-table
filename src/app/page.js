@@ -6,15 +6,18 @@ import { toast } from "react-hot-toast";
 import { produce } from "immer";
 import { TrashIcon } from "@heroicons/react/20/solid";
 import { Card, Title, BarChart, Subtitle } from "@tremor/react";
+import { FunnelIcon } from "@heroicons/react/24/outline";
 import Table, { AvatarCell, SelectColumnFilter, StatusPill } from "../components/table";
 import Dialog from "../components/dialog";
 import SquigglyLines from "../components/squigglyLines";
 import { calculateScores } from "./utils";
+import useAutoFocus from "./hooks/useAutoFocus";
 
 const initialState = {
     brand: "",
     price: "",
     model: "",
+    type: "",
     variant: "",
     engine: "",
     engineType: "",
@@ -55,10 +58,11 @@ const initialMock = [
         brand: "Tata",
         price: "1100000",
         model: "Nexon",
+        type: "Compact SUV",
         variant: "XZ Plus",
         engine: "1199 cc",
         engineType: "1.2L Turbocharged Revotron",
-        cylinder: "",
+        cylinder: "3",
         fuelType: "Petrol",
         maxPower: "118 bhp @ 5500 rpm",
         maxTorque: "170 Nm @ 1750 rpm",
@@ -93,6 +97,7 @@ const initialMock = [
         brand: "Hyundai",
         price: "976000",
         model: "Venue",
+        type: "Compact SUV",
         variant: "S (O)",
         engine: "1197 cc",
         engineType: "1.2L Kappa",
@@ -134,6 +139,9 @@ export default function Home() {
     const [skipPageReset, setSkipPageReset] = React.useState(false);
     const [modalState, setModalState] = useState(initialState);
     const [barChartData, setBarChartData] = useState([]);
+    const [carTypeFilterValue, setCarTypeFilterValue] = useState("");
+    const inputRef = useAutoFocus();
+    const carTypes = [...new Set(carData.map(car => car.type))];
 
     const handleCheckbox = useCallback(
         (key, value, row) => {
@@ -204,6 +212,29 @@ export default function Home() {
                         Header: "Model",
                         accessor: "model",
                         disableSortBy: true
+                    },
+                    {
+                        Header: "Type",
+                        accessor: "type",
+                        disableSortBy: true,
+                        Cell: ({ row, value }) => (
+                            <select
+                                className="inline-flex rounded-md border border-gray-300 py-[6px] px-[9px] text-sm font-medium text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2"
+                                value={value}
+                                onChange={e => {
+                                    const type = e.target.value;
+                                    handleSelection("type", type, row);
+                                }}
+                            >
+                                {["SUV", "Sedan", "Hatchback", "Compact SUV", "Compact Sedan"].map(
+                                    ty => (
+                                        <option key={ty} value={ty}>
+                                            {ty}
+                                        </option>
+                                    )
+                                )}
+                            </select>
+                        )
                     },
                     {
                         Header: "Variant/Version",
@@ -714,8 +745,17 @@ export default function Home() {
     }, []);
 
     useEffect(() => {
-        setBarChartData(calculateScores(carData));
-    }, [carData]);
+        // Pre-process the car data by filtering based on carTypeFilterValue
+        const filteredCarData = carTypeFilterValue
+            ? carData.filter(cd => cd.type === carTypeFilterValue)
+            : carData;
+
+        // Calculate the scores using the filtered car data
+        const scores = calculateScores(filteredCarData);
+
+        // Update the bar chart data
+        setBarChartData(scores);
+    }, [carData, carTypeFilterValue]);
 
     return (
         <div className="w-full">
@@ -726,11 +766,11 @@ export default function Home() {
                     <span className="relative">Car Table</span>
                 </span>
             </h1>
-            <h2 className="mx-auto mt-12 max-w-xl text-lg text-slate-700 leading-7">
+            <p className="mx-auto mt-12 max-w-xl text-lg text-slate-700 leading-7">
                 Car Table is the perfect DIY app for first-time car buyers who want to compare
                 different car options. With Car Table, you can easily add your shortlisted cars and
-                compare them with custom filters, graphs, and widgets.
-            </h2>
+                compare them with custom filters, charts, and widgets.
+            </p>
             <div className="py-16">
                 <Table
                     columns={columns}
@@ -740,29 +780,65 @@ export default function Home() {
                     setIsModalOpen={setIsModalOpen}
                 />
             </div>
-            <div className="mx-auto py-10">
+            <div className="mx-auto pb-10">
                 <div className="mx-auto md:text-center">
                     <h2 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-900 sm:text-6xl">
-                        Reports
+                        Visualize your car data with{" "}
+                        <span className="relative whitespace-nowrap text-[#3290EE]">
+                            <SquigglyLines />
+                            <span className="relative">Charts</span>
+                        </span>
                     </h2>
                     <p className="mx-auto mt-12 max-w-xl text-lg text-slate-700 leading-7">
-                        chart composition combining a Card with Title, Subtitle, Card and BarChart
-                        components.
+                        Visualize and analyze key metrics of your shortlisted cars, such as engine
+                        scores, safety ratings, interior features, and more.
                     </p>
-                    <Card className="my-14">
-                        <Title>Car comparison</Title>
-                        <BarChart
-                            className="mt-4"
-                            data={barChartData}
-                            index="category"
-                            categories={carData.map(car => car.model)}
-                            minValue={0}
-                            maxValue={10}
-                        />
-                    </Card>
+                    <div className="py-16">
+                        <div className="flex gap-x-2 mb-4">
+                            <span className="flex items-center font-medium text-slate-800 max-sm:hidden">
+                                <FunnelIcon className="mr-[1px]" width={20} height={20} /> Filter:
+                            </span>
+                            <div>
+                                <label className="flex items-baseline gap-x-2">
+                                    <select
+                                        className="mt-1 inline-flex items-center rounded-md border border-gray-300 bg-white py-[6px] px-[9px] text-sm font-medium text-black shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2"
+                                        name="carType-filter"
+                                        id="carType-filter"
+                                        value={carTypeFilterValue}
+                                        onChange={e => {
+                                            setCarTypeFilterValue(e.target.value || undefined);
+                                        }}
+                                    >
+                                        <option value="">Car Type</option>
+                                        {carTypes.map((option, i) => (
+                                            <option key={i} value={option}>
+                                                {option}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <Card>
+                            <Title>Car comparison</Title>
+                            <BarChart
+                                className="mt-4"
+                                data={barChartData}
+                                index="category"
+                                categories={carData.map(car => car.model)}
+                                minValue={0}
+                                maxValue={10}
+                            />
+                        </Card>
+                    </div>
                 </div>
             </div>
-            <Dialog show={isModalOpen} setIsOpen={setIsModalOpen} title="Add Car">
+            <Dialog
+                inputRef={inputRef}
+                show={isModalOpen}
+                setIsOpen={setIsModalOpen}
+                title="Add Car"
+            >
                 <div className="sm:flex sm:items-start">
                     <form
                         className="md:[420px] grid w-full grid-cols-1 items-center gap-4"
@@ -777,27 +853,60 @@ export default function Home() {
                                 maxLength="20"
                                 required
                                 autoFocus
+                                ref={inputRef}
                                 value={modalState.brand}
                                 onChange={event =>
                                     setModalState({ ...modalState, brand: event.target.value })
                                 }
                             />
                         </label>
-                        <label className="block">
-                            <span className="block text-sm font-medium text-slate-800">Model</span>
-                            <input
-                                className="mt-2 block h-10 w-full appearance-none rounded-md bg-white px-3 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                                type="text"
-                                placeholder="Nexon"
-                                maxLength="20"
-                                autoFocus
-                                value={modalState.model}
-                                onChange={event =>
-                                    setModalState({ ...modalState, model: event.target.value })
-                                }
-                            />
-                        </label>
-                        <div className="grid grid-cols-[30%,70%]">
+                        <div className="grid grid-cols-[50%,50%]">
+                            <label className="mr-4 block">
+                                <span className="block text-sm font-medium text-slate-800">
+                                    Model
+                                </span>
+                                <input
+                                    className="mt-2 block h-10 w-full appearance-none rounded-md bg-white px-3 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
+                                    type="text"
+                                    placeholder="Nexon"
+                                    maxLength="20"
+                                    autoFocus
+                                    value={modalState.model}
+                                    onChange={event =>
+                                        setModalState({ ...modalState, model: event.target.value })
+                                    }
+                                />
+                            </label>
+                            <label>
+                                <span className="block text-sm font-medium text-slate-800">
+                                    Type
+                                </span>
+                                <select
+                                    name="type"
+                                    className="mt-2 block h-10 w-full rounded-md bg-white py-2 px-3 pr-8 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
+                                    onChange={event => {
+                                        setState({ ...modalState, type: event.target.value });
+                                    }}
+                                    value={modalState.type}
+                                    required
+                                >
+                                    {[
+                                        "SUV",
+                                        "Sedan",
+                                        "Hatchback",
+                                        "Compact SUV",
+                                        "Compact Sedan"
+                                    ].map(carType => {
+                                        return (
+                                            <option key={carType} value={carType}>
+                                                {carType}
+                                            </option>
+                                        );
+                                    })}
+                                </select>
+                            </label>
+                        </div>
+                        <div className="grid grid-cols-[50%,50%]">
                             <label className="block">
                                 <span className="block text-sm font-medium text-slate-800">
                                     Price
@@ -837,7 +946,7 @@ export default function Home() {
                                 </div>
                             </label>
                         </div>
-                        <button className="mt-0 flex h-[44px] items-center justify-center rounded-md bg-zinc-900 py-2.5 px-4 text-white hover:bg-zinc-700">
+                        <button className="mt-0 flex h-[44px] items-center justify-center rounded-md bg-slate-900 py-2.5 px-4 text-white hover:bg-slate-700">
                             Submit
                         </button>
                     </form>
