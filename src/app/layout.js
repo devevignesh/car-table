@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import cx from "classnames";
 import { Toaster } from "react-hot-toast";
 import { ErrorBoundary } from "react-error-boundary";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import ErrorFallback from "../components/errorFallback";
@@ -81,6 +82,7 @@ export default function RootLayout({ children }) {
                     toastOptions={{ duration: 2000 }}
                 />
             </body>
+            <Analytics />
         </html>
     );
 }
