@@ -192,8 +192,8 @@ function Table({ columns, data, updateTableData, skipPageReset, setIsModalOpen }
     // Render the UI for your table
     return (
         <>
-            <div className="mb-12 flex h-[48px] sm:h-[34px] w-full sm:mb-4 sm:flex-row sm:items-center justify-between">
-                <div className="flex gap-x-2">
+            <div className="mb-6 flex h-[48px] sm:h-[34px] w-full sm:mb-4 sm:flex-row sm:items-center justify-between">
+                <div className="flex gap-x-2 items-center">
                     <span className="flex items-center font-medium text-slate-800 max-sm:hidden">
                         <FunnelIcon className="mr-[1px]" width={20} height={20} /> Filter:
                     </span>
@@ -208,15 +208,17 @@ function Table({ columns, data, updateTableData, skipPageReset, setIsModalOpen }
                     )}
                 </div>
                 {/* // FIXME: mobile responsive */}
-                <div className="flex justify-end">
+                <div className="flex justify-end items-center">
                     <Export carData={data} />
-                    <button
-                        className="relative font-sm bg-black inline-flex items-center rounded-md py-[10px] text-sm font-medium leading-[16px] text-white shadow-sm hover:bg-black/80 px-[12px]"
-                        onClick={() => setIsModalOpen(true)}
-                    >
-                        <PlusIcon className="relative top-[1px] h-4 w-4" />{" "}
-                        <span className="ml-2 hidden sm:block">Add car</span>
-                    </button>
+                    <div>
+                        <button
+                            className="relative font-sm bg-black inline-flex items-center rounded-md px-[12px] py-[10px] text-sm font-medium leading-[16px] text-white shadow-sm hover:bg-black/80 sm:px-[8px]"
+                            onClick={() => setIsModalOpen(true)}
+                        >
+                            <PlusIcon className="relative top-[1px] h-4 w-4" />{" "}
+                            <span className="ml-2 hidden sm:block">Add car</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className="block w-full overflow-x-auto">

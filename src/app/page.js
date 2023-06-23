@@ -722,7 +722,7 @@ export default function Home() {
                         scores, safety ratings, interior features, and more.
                     </p>
                     <div className="pt-16">
-                        <div className="mb-12 flex h-[48px] sm:h-[34px] w-full sm:mb-4 sm:flex-row sm:items-center justify-between">
+                        <div className="mb-6 flex h-[48px] sm:h-[34px] w-full sm:mb-4 sm:flex-row sm:items-center justify-between">
                             <div className="flex gap-x-2">
                                 <span className="flex items-center font-medium text-slate-800 max-sm:hidden">
                                     <FunnelIcon className="mr-[1px]" width={20} height={20} />{" "}
