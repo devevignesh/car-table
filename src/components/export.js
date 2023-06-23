@@ -71,7 +71,7 @@ const Export = ({ carData }) => {
         <div>
             <button
                 onClick={handleDownloadTransaction}
-                className="relative mr-4 font-sm inline-flex items-center border border-gray-300 bg-white py-[6px] text-sm font-medium text-black shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 rounded-md px-[9px]"
+                className="relative mr-4 font-sm inline-flex items-center border border-gray-300 bg-white py-[10px] text-sm font-medium text-black shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 rounded-md px-[12px]"
             >
                 {" "}
                 <ArrowDownTrayIcon

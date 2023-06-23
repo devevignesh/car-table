@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Balancer from "react-wrap-balancer";
 import { toast } from "react-hot-toast";
 import { produce } from "immer";
-import { TrashIcon } from "@heroicons/react/20/solid";
+import { TrashIcon, ArrowPathIcon } from "@heroicons/react/20/solid";
 import { Card, Title, BarChart, Subtitle } from "@tremor/react";
 import { FunnelIcon } from "@heroicons/react/24/outline";
 import Table, { SelectColumnFilter } from "../components/table";
@@ -13,6 +13,7 @@ import SquigglyLines from "../components/squigglyLines";
 import { calculateScores } from "./utils";
 import useAutoFocus from "./hooks/useAutoFocus";
 import Feedback from "../components/feedback";
+import compactSUV from "./lib/mock/compactSUV.json";
 
 const initialState = {
     brand: "",
@@ -53,128 +54,6 @@ const initialState = {
     warrantyKilometres: ""
 };
 
-const initialMock = [
-    {
-        brand: "Tata",
-        price: "1100000",
-        model: "Nexon",
-        type: "Compact SUV",
-        variant: "XZ Plus",
-        engine: "1199 cc",
-        engineType: "1.2L Turbocharged Revotron",
-        cylinder: "3",
-        fuelType: "Petrol",
-        maxPower: "118 bhp @ 5500 rpm",
-        maxTorque: "170 Nm @ 1750 rpm",
-        transmission: "Manual",
-        ncap: "5",
-        airBags: "2",
-        abs: true,
-        ebd: true,
-        esp: true,
-        hillHold: true,
-        tractionControl: true,
-        powerSteering: true,
-        ac: "Automatic",
-        infotainment: true,
-        smartConnectivity: "Both",
-        cruiseControl: false,
-        engineButton: true,
-        sunroof: false,
-        camera: "NA",
-        length: "3993 mm",
-        width: "1811 mm",
-        height: "1606 mm",
-        wheelBase: "2498 mm",
-        groundClearance: "209 mm",
-        kerbWeight: "1250 kg",
-        boot: "350 litres",
-        fuelTank: "44 litres",
-        warranty: "3",
-        warrantyKilometres: "100000"
-    },
-    {
-        brand: "Hyundai",
-        price: "976000",
-        model: "Venue",
-        type: "Compact SUV",
-        variant: "S (O)",
-        engine: "1197 cc",
-        engineType: "1.2L Kappa",
-        cylinder: "4",
-        fuelType: "Petrol",
-        maxPower: "82 bhp @ 6000 rpm",
-        maxTorque: "114 Nm @ 4000 rpm",
-        transmission: "Manual",
-        ncap: "Not Rated",
-        airBags: "4",
-        abs: true,
-        esp: true,
-        ebd: true,
-        hillHold: true,
-        tractionControl: true,
-        powerSteering: true,
-        ac: "Manual",
-        powerSteering: true,
-        infotainment: true,
-        smartConnectivity: "NA",
-        cruiseControl: false,
-        engineButton: true,
-        sunroof: false,
-        camera: "Rear",
-        length: "3995 mm",
-        width: "1770 mm",
-        height: "1617 mm",
-        wheelBase: "2500 mm",
-        groundClearance: "195 mm",
-        kerbWeight: "1233 kg",
-        boot: "350 litres",
-        fuelTank: "45 litres",
-        warranty: "3",
-        warrantyKilometres: "Unlimited"
-    },
-    {
-        brand: "Suzuki",
-        price: "965000",
-        model: "Brezza",
-        type: "Compact SUV",
-        variant: "VXi",
-        engine: "1462 cc",
-        engineType: "1.5L K15C Smart Hybrid",
-        cylinder: "4",
-        fuelType: "Petrol",
-        maxPower: "102 bhp @ 6000 rpm",
-        maxTorque: "136.8 Nm @ 4400 rpm",
-        transmission: "Manual",
-        ncap: "Not Rated",
-        airBags: "2",
-        abs: true,
-        esp: true,
-        ebd: true,
-        hillHold: true,
-        tractionControl: false,
-        powerSteering: true,
-        ac: "Manual",
-        powerSteering: true,
-        infotainment: true,
-        smartConnectivity: "Both",
-        cruiseControl: false,
-        engineButton: false,
-        sunroof: false,
-        camera: "NA",
-        length: "3995 mm",
-        width: "1790 mm",
-        height: "1685 mm",
-        wheelBase: "2500 mm",
-        groundClearance: "",
-        kerbWeight: "1130 kg",
-        boot: "350 litres",
-        fuelTank: "48 litres",
-        warranty: "2",
-        warrantyKilometres: "40000"
-    }
-];
-
 export default function Home() {
     const [carData, setCarData] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -184,6 +63,11 @@ export default function Home() {
     const [carTypeFilterValue, setCarTypeFilterValue] = useState("");
     const inputRef = useAutoFocus();
     const carTypes = [...new Set(carData.map(car => car.type))];
+    const [currentSegment, setCurrentSegment] = useState("compactSUV");
+    // Initialize a variable to keep track of the current segment
+    let currentSegmentIndex = 0;
+    // Define the segments in the desired order
+    const segments = ["compactSUV", "hatchback", "sedan"];
 
     const handleCheckbox = useCallback(
         (key, value, row) => {
@@ -230,6 +114,22 @@ export default function Home() {
                 draft[rowIndex][columnId] = value;
             })
         );
+    };
+
+    const fetchNextSegmentData = () => {
+        const currentSegmentIndex = segments.indexOf(currentSegment);
+        const nextSegmentIndex = (currentSegmentIndex + 1) % segments.length;
+        const nextSegment = segments[nextSegmentIndex];
+
+        // Dynamically load the car data for the next segment
+        const nextSegmentData = require(`./lib/mock/${nextSegment}.json`);
+
+        setCarData(nextSegmentData);
+        setCurrentSegment(nextSegment);
+    };
+
+    const handleCompareMore = () => {
+        fetchNextSegmentData();
     };
 
     const columns = useMemo(
@@ -743,7 +643,7 @@ export default function Home() {
     useEffect(() => {
         const storedData = window.localStorage.getItem("carData");
         if (!storedData) {
-            window.localStorage.setItem("carData", JSON.stringify(initialMock));
+            window.localStorage.setItem("carData", JSON.stringify(compactSUV));
         }
     }, []);
 
@@ -792,6 +692,13 @@ export default function Home() {
                 different car options. With Car Table, you can easily add your shortlisted cars and
                 compare them with custom filters, charts, and widgets.
             </p>
+            <button
+                className="relative items-center inline-flex bg-blue-600 rounded-xl text-white font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-blue-500 transition"
+                onClick={handleCompareMore}
+            >
+                <span className="mr-2 hidden sm:block">Compare more</span>{" "}
+                <ArrowPathIcon className="relative top-[1px] h-4 w-4" />
+            </button>
             <div className="py-16">
                 <Table
                     columns={columns}

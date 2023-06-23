@@ -211,7 +211,7 @@ function Table({ columns, data, updateTableData, skipPageReset, setIsModalOpen }
                 <div className="flex justify-end">
                     <Export carData={data} />
                     <button
-                        className="relative font-sm bg-black inline-flex items-center rounded-md py-[6px] text-sm font-medium leading-[16px] text-white shadow-sm hover:bg-black/80 px-[9px]"
+                        className="relative font-sm bg-black inline-flex items-center rounded-md py-[10px] text-sm font-medium leading-[16px] text-white shadow-sm hover:bg-black/80 px-[12px]"
                         onClick={() => setIsModalOpen(true)}
                     >
                         <PlusIcon className="relative top-[1px] h-4 w-4" />{" "}
