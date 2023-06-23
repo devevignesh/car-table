@@ -7,11 +7,12 @@ import { produce } from "immer";
 import { TrashIcon } from "@heroicons/react/20/solid";
 import { Card, Title, BarChart, Subtitle } from "@tremor/react";
 import { FunnelIcon } from "@heroicons/react/24/outline";
-import Table, { AvatarCell, SelectColumnFilter, StatusPill } from "../components/table";
+import Table, { SelectColumnFilter } from "../components/table";
 import Dialog from "../components/dialog";
 import SquigglyLines from "../components/squigglyLines";
 import { calculateScores } from "./utils";
 import useAutoFocus from "./hooks/useAutoFocus";
+import Feedback from "../components/feedback";
 
 const initialState = {
     brand: "",
@@ -37,7 +38,6 @@ const initialState = {
     ac: "",
     infotainment: false,
     smartConnectivity: "",
-    speakers: "",
     cruiseControl: false,
     engineButton: false,
     sunroof: "",
@@ -78,18 +78,18 @@ const initialMock = [
         ac: "Automatic",
         infotainment: true,
         smartConnectivity: "Both",
-        speakers: "8",
         cruiseControl: false,
         engineButton: true,
         sunroof: false,
+        camera: "NA",
         length: "3993 mm",
         width: "1811 mm",
         height: "1606 mm",
         wheelBase: "2498 mm",
         groundClearance: "209 mm",
-        fuelTank: "44 litres",
         kerbWeight: "1250 kg",
         boot: "350 litres",
+        fuelTank: "44 litres",
         warranty: "3",
         warrantyKilometres: "100000"
     },
@@ -102,10 +102,11 @@ const initialMock = [
         engine: "1197 cc",
         engineType: "1.2L Kappa",
         cylinder: "4",
+        fuelType: "Petrol",
         maxPower: "82 bhp @ 6000 rpm",
         maxTorque: "114 Nm @ 4000 rpm",
         transmission: "Manual",
-        safetyRating: "NA",
+        ncap: "Not Rated",
         airBags: "4",
         abs: true,
         esp: true,
@@ -116,8 +117,9 @@ const initialMock = [
         ac: "Manual",
         powerSteering: true,
         infotainment: true,
-        smartConnectivity: true,
+        smartConnectivity: "NA",
         cruiseControl: false,
+        engineButton: true,
         sunroof: false,
         camera: "Rear",
         length: "3995 mm",
@@ -130,6 +132,46 @@ const initialMock = [
         fuelTank: "45 litres",
         warranty: "3",
         warrantyKilometres: "Unlimited"
+    },
+    {
+        brand: "Suzuki",
+        price: "965000",
+        model: "Brezza",
+        type: "Compact SUV",
+        variant: "VXi",
+        engine: "1462 cc",
+        engineType: "1.5L K15C Smart Hybrid",
+        cylinder: "4",
+        fuelType: "Petrol",
+        maxPower: "102 bhp @ 6000 rpm",
+        maxTorque: "136.8 Nm @ 4400 rpm",
+        transmission: "Manual",
+        ncap: "Not Rated",
+        airBags: "2",
+        abs: true,
+        esp: true,
+        ebd: true,
+        hillHold: true,
+        tractionControl: false,
+        powerSteering: true,
+        ac: "Manual",
+        powerSteering: true,
+        infotainment: true,
+        smartConnectivity: "Both",
+        cruiseControl: false,
+        engineButton: false,
+        sunroof: false,
+        camera: "NA",
+        length: "3995 mm",
+        width: "1790 mm",
+        height: "1685 mm",
+        wheelBase: "2500 mm",
+        groundClearance: "",
+        kerbWeight: "1130 kg",
+        boot: "350 litres",
+        fuelTank: "48 litres",
+        warranty: "2",
+        warrantyKilometres: "40000"
     }
 ];
 
@@ -525,27 +567,6 @@ export default function Home() {
                         )
                     },
                     {
-                        Header: "Speakers",
-                        accessor: "speakers",
-                        disableSortBy: true,
-                        Cell: ({ row, value }) => (
-                            <select
-                                className="inline-flex rounded-md border border-gray-300 py-[6px] px-[9px] text-sm font-medium text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2"
-                                value={value}
-                                onChange={e => {
-                                    const speakers = e.target.value;
-                                    handleSelection("speakers", connectspeakersivity, row);
-                                }}
-                            >
-                                {["NA", "2", "4", "6", "8", "10"].map(s => (
-                                    <option key={s} value={s}>
-                                        {s}
-                                    </option>
-                                ))}
-                            </select>
-                        )
-                    },
-                    {
                         Header: "Cruise Control",
                         accessor: "cruiseControl",
                         Cell: ({ value, row }) => {
@@ -783,40 +804,46 @@ export default function Home() {
             <div className="mx-auto pb-10">
                 <div className="mx-auto md:text-center">
                     <h2 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-900 sm:text-6xl">
-                        Visualize your car data with{" "}
                         <span className="relative whitespace-nowrap text-[#3290EE]">
                             <SquigglyLines />
-                            <span className="relative">Charts</span>
-                        </span>
+                            <span className="relative">Visualize</span>
+                        </span>{" "}
+                        your car data with charts
                     </h2>
                     <p className="mx-auto mt-12 max-w-xl text-lg text-slate-700 leading-7">
                         Visualize and analyze key metrics of your shortlisted cars, such as engine
                         scores, safety ratings, interior features, and more.
                     </p>
-                    <div className="py-16">
-                        <div className="flex gap-x-2 mb-4">
-                            <span className="flex items-center font-medium text-slate-800 max-sm:hidden">
-                                <FunnelIcon className="mr-[1px]" width={20} height={20} /> Filter:
-                            </span>
-                            <div>
-                                <label className="flex items-baseline gap-x-2">
-                                    <select
-                                        className="mt-1 inline-flex items-center rounded-md border border-gray-300 bg-white py-[6px] px-[9px] text-sm font-medium text-black shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2"
-                                        name="carType-filter"
-                                        id="carType-filter"
-                                        value={carTypeFilterValue}
-                                        onChange={e => {
-                                            setCarTypeFilterValue(e.target.value || undefined);
-                                        }}
-                                    >
-                                        <option value="">Car Type</option>
-                                        {carTypes.map((option, i) => (
-                                            <option key={i} value={option}>
-                                                {option}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </label>
+                    <div className="pt-16">
+                        <div className="mb-12 flex h-[48px] sm:h-[34px] w-full sm:mb-4 sm:flex-row sm:items-center justify-between">
+                            <div className="flex gap-x-2">
+                                <span className="flex items-center font-medium text-slate-800 max-sm:hidden">
+                                    <FunnelIcon className="mr-[1px]" width={20} height={20} />{" "}
+                                    Filter:
+                                </span>
+                                <div>
+                                    <label className="flex items-baseline gap-x-2">
+                                        <select
+                                            className="mt-1 inline-flex items-center rounded-md border border-gray-300 bg-white py-[6px] px-[9px] text-sm font-medium text-black shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2"
+                                            name="carType-filter"
+                                            id="carType-filter"
+                                            value={carTypeFilterValue}
+                                            onChange={e => {
+                                                setCarTypeFilterValue(e.target.value || undefined);
+                                            }}
+                                        >
+                                            <option value="">Car Type</option>
+                                            {carTypes.map((option, i) => (
+                                                <option key={i} value={option}>
+                                                    {option}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="flex justify-end">
+                                <Feedback />
                             </div>
                         </div>
                         <Card>

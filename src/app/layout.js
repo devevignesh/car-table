@@ -27,11 +27,11 @@ export const metadata = {
         template: "%s | Car Table"
     },
     description:
-        "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, graphs, and widgets.",
+        "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, charts, and widgets.",
     openGraph: {
         title: "Supercharge your car shortlisting with Car Table",
         description:
-            "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, graphs, and widgets.",
+            "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, charts, and widgets.",
         url: "https://cartable.in",
         siteName: "Car Table",
         images: [

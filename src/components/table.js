@@ -4,13 +4,18 @@ import {
     ChevronDoubleLeftIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
-    ChevronDoubleRightIcon
+    ChevronDoubleRightIcon,
+    ArrowsRightLeftIcon,
+    PlusIcon
 } from "@heroicons/react/20/solid";
 import { FunnelIcon } from "@heroicons/react/24/outline";
 import cx from "classnames";
 import Image from "next/image";
+import { Badge } from "@tremor/react";
 import { Button, PageButton } from "./button";
 import { SortIcon, SortUpIcon, SortDownIcon } from "./icons";
+import LoaderTable from "./loaderTable";
+import Export from "./export";
 
 // This is a custom filter UI for selecting
 // a unique option from a list
@@ -204,11 +209,13 @@ function Table({ columns, data, updateTableData, skipPageReset, setIsModalOpen }
                 </div>
                 {/* // FIXME: mobile responsive */}
                 <div className="flex justify-end">
+                    <Export carData={data} />
                     <button
-                        className="bg-black rounded-xl text-white font-medium px-4 py-3 hover:bg-black/80"
+                        className="relative font-sm bg-black inline-flex items-center rounded-md py-[6px] text-sm font-medium leading-[16px] text-white shadow-sm hover:bg-black/80 px-[9px]"
                         onClick={() => setIsModalOpen(true)}
                     >
-                        Add car
+                        <PlusIcon className="relative top-[1px] h-4 w-4" />{" "}
+                        <span className="ml-2 hidden sm:block">Add car</span>
                     </button>
                 </div>
             </div>
@@ -272,31 +279,35 @@ function Table({ columns, data, updateTableData, skipPageReset, setIsModalOpen }
                         {...restTableBodyProps}
                         className="divide-y divide-gray-200 bg-white"
                     >
-                        {page.map((row, i) => {
-                            // new
-                            prepareRow(row);
-                            const { key: rowIndex, ...restRowProps } = row.getRowProps();
-                            return (
-                                <tr key={rowIndex} {...restRowProps}>
-                                    {row.cells.map(cell => {
-                                        const { key: cellIndex, ...restCellProps } =
-                                            cell.getCellProps();
-                                        return (
-                                            <td
-                                                key={cellIndex}
-                                                {...restCellProps}
-                                                className="whitespace-nowrap px-6 py-4 border border-slate-300"
-                                                role="cell"
-                                            >
-                                                <div className="text-left text-sm text-slate-700">
-                                                    {cell.render("Cell")}
-                                                </div>
-                                            </td>
-                                        );
-                                    })}
-                                </tr>
-                            );
-                        })}
+                        {page.length > 0 ? (
+                            page.map((row, i) => {
+                                // new
+                                prepareRow(row);
+                                const { key: rowIndex, ...restRowProps } = row.getRowProps();
+                                return (
+                                    <tr key={rowIndex} {...restRowProps}>
+                                        {row.cells.map(cell => {
+                                            const { key: cellIndex, ...restCellProps } =
+                                                cell.getCellProps();
+                                            return (
+                                                <td
+                                                    key={cellIndex}
+                                                    {...restCellProps}
+                                                    className="whitespace-nowrap px-6 py-4 border border-slate-300"
+                                                    role="cell"
+                                                >
+                                                    <div className="text-left text-sm text-slate-700">
+                                                        {cell.render("Cell")}
+                                                    </div>
+                                                </td>
+                                            );
+                                        })}
+                                    </tr>
+                                );
+                            })
+                        ) : (
+                            <LoaderTable td={39} tr={3} />
+                        )}
                     </tbody>
                 </table>
             </div>
@@ -319,7 +330,7 @@ function Table({ columns, data, updateTableData, skipPageReset, setIsModalOpen }
                         <label>
                             <span className="sr-only">Items Per Page</span>
                             <select
-                                className="mt-1 inline-flex w-[112px] items-center rounded-md border border-gray-300 bg-white py-[6px] px-[9px] text-sm font-medium text-black shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 xs:w-[120px]"
+                                className="mt-1 inline-flex w-[112px] items-center rounded-md border border-gray-300 bg-white py-[6px] px-[9px] text-sm font-medium text-black shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 sm:w-[120px]"
                                 value={state.pageSize}
                                 onChange={e => {
                                     setPageSize(Number(e.target.value));
