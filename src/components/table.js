@@ -212,11 +212,10 @@ function Table({ columns, data, updateTableData, skipPageReset, setIsModalOpen }
                     <Export carData={data} />
                     <div>
                         <button
-                            className="relative font-sm bg-black inline-flex items-center rounded-md px-[12px] py-[10px] text-sm font-medium leading-[16px] text-white shadow-sm hover:bg-black/80 sm:px-[8px]"
+                            className="relative font-sm bg-black inline-flex items-center text-white rounded-md px-[12px] py-[10px] text-sm font-medium leading-[16px] shadow-sm hover:bg-black/80 sm:px-[8px]"
                             onClick={() => setIsModalOpen(true)}
                         >
-                            <PlusIcon className="relative top-[1px] h-4 w-4" />{" "}
-                            <span className="ml-2 hidden sm:block">Add car</span>
+                            Add car
                         </button>
                     </div>
                 </div>

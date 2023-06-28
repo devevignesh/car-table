@@ -24,11 +24,11 @@ const inter = Inter({
 
 export const metadata = {
     title: {
-        default: "Car Table",
+        default: "Compare Cars in India | Car Table",
         template: "%s | Car Table"
     },
     description:
-        "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, charts, and widgets.",
+        "Car Table is the perfect DIY app for first-time car buyers who want to compare different car options in India. With Car Table, you can easily add your shortlisted cars and compare them with custom filters, charts, and widgets.",
     openGraph: {
         title: "Supercharge your car shortlisting with Car Table",
         description:
