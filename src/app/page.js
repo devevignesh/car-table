@@ -23,22 +23,22 @@ const initialState = {
     variant: "",
     engine: "",
     engineType: "",
-    cylinder: "",
+    cylinder: "3",
     fuelType: "",
     maxPower: "",
     maxTorque: "",
     transmission: "",
     ncap: "Not Rated",
-    airBags: "",
+    airBags: "2",
     abs: false,
     ebd: false,
     esp: false,
     hillHold: false,
     tractionControl: false,
     powerSteering: false,
-    ac: "",
+    ac: "Automatic",
     infotainment: false,
-    smartConnectivity: "",
+    smartConnectivity: "NA",
     cruiseControl: false,
     engineButton: false,
     sunroof: "",
@@ -51,7 +51,8 @@ const initialState = {
     kerbWeight: "",
     boot: "",
     warranty: "",
-    warrantyKilometres: ""
+    warrantyKilometres: "",
+    camera: "NA"
 };
 
 export default function Home() {
@@ -819,7 +820,7 @@ export default function Home() {
                                     name="type"
                                     className="mt-2 block h-10 w-full rounded-md bg-white py-2 px-3 pr-8 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
                                     onChange={event => {
-                                        setState({ ...modalState, type: event.target.value });
+                                        setModalState({ ...modalState, type: event.target.value });
                                     }}
                                     value={modalState.type}
                                     required
