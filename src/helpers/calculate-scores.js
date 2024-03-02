@@ -179,7 +179,7 @@ const calculateFeatureScores = cars => {
 
 // calculate dimension and weight score
 const calculateDimensionWeightScores = cars => {
-    const properties = ["length", "width", "height", "wheelBase", "groundClearance", "kerbWeight"];
+    const properties = ["length", "width", "height", "wheelBase", "groundClearance"];
     const maxProperties = properties.length;
 
     const maxValues = {};
@@ -189,7 +189,7 @@ const calculateDimensionWeightScores = cars => {
         const maxPropertyValue = Math.max(
             ...cars.map(car => {
                 const value = car[property];
-                const numericValue = parseFloat(value.split(" ")[0]) || 0; // Extract the numerical value
+                const numericValue = value ? parseFloat(value.split(" ")[0]) : 0;
                 return numericValue;
             })
         );

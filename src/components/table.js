@@ -132,7 +132,7 @@ const EditableCell = ({
     return (
         <input
             type="text"
-            className="block h-10 appearance-none rounded-md bg-white px-2 text-sm text-slate-800  placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
+            className="block capitalize h-10 appearance-none rounded-md bg-white px-2 text-sm text-slate-800  placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
             value={value}
             onChange={onChange}
             onBlur={onBlur}

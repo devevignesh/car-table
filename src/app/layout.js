@@ -5,9 +5,12 @@ import cx from "classnames";
 import { Toaster } from "react-hot-toast";
 import { ErrorBoundary } from "react-error-boundary";
 import { Analytics } from "@vercel/analytics/react";
+import Script from 'next/script';
 import Header from "../components/header";
 import Footer from "../components/footer";
 import ErrorFallback from "../components/errorFallback";
+
+const GOOGLE_ANALYTICS_ID = process.env.GA4_ANALYTICS_ID;
 
 const satoshi = localFont({
     src: "../../public/fonts/Satoshi-Variable.woff2",
@@ -68,6 +71,16 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={cx(satoshi.variable, inter.variable, "min-h-screen bg-white")}>
             <body>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} strategy="afterInteractive" />
+			<Script id="ga4" strategy="afterInteractive">
+				{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+
+						gtag('config', '${GOOGLE_ANALYTICS_ID}');
+					`}
+			</Script>
                 <div className="flex max-w-screen-2xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
                     <Header />
                     <main className="mt-12 flex w-full flex-1 flex-col items-center px-4 text-center sm:mt-20">

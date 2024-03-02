@@ -10,10 +10,12 @@ import { FunnelIcon } from "@heroicons/react/24/outline";
 import Table, { SelectColumnFilter } from "../components/table";
 import Dialog from "../components/dialog";
 import SquigglyLines from "../components/squigglyLines";
-import { calculateScores } from "./utils";
+import { calculateScores } from "@/helpers/calculate-scores";
 import useAutoFocus from "./hooks/useAutoFocus";
 import Feedback from "../components/feedback";
 import compactSUV from "./lib/mock/compactSUV.json";
+import { Button } from "@/components/ui/button";
+import { Loader } from "lucide-react";
 
 const initialState = {
     brand: "",
@@ -48,7 +50,7 @@ const initialState = {
     wheelBase: "",
     groundClearance: "",
     fuelTank: "",
-    kerbWeight: "",
+    // kerbWeight: "",
     boot: "",
     warranty: "",
     warrantyKilometres: "",
@@ -60,6 +62,7 @@ export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [skipPageReset, setSkipPageReset] = React.useState(false);
     const [modalState, setModalState] = useState(initialState);
+    const [loading, setLoading] = useState(false);
     const [barChartData, setBarChartData] = useState([]);
     const [carTypeFilterValue, setCarTypeFilterValue] = useState("");
     const inputRef = useAutoFocus();
@@ -94,15 +97,55 @@ export default function Home() {
         [carData]
     );
 
-    const handleAddNewCar = event => {
+    const handleAddNewCar = async event => {
         event.preventDefault();
-        // Append the new object to the existing data or create a new array with it
-        const updatedData = produce(carData, draft => {
-            draft.push(modalState);
-        });
-        setCarData(updatedData);
-        setIsModalOpen(false);
-        toast.success("Car data updated successfully");
+        setLoading(true);
+
+        try {
+            const res = await fetch("/api/fetch-car", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    brand: modalState.brand,
+                    model: modalState.model,
+                    variant: modalState.variant,
+                    fuelType: modalState.fuelType
+                })
+            });
+
+            if (!res.ok) {
+                const error = await res.json();
+                throw new Error(error.message || res.statusText);
+            }
+
+            const data = await res.json();
+
+            if (data?.result?.length > 0) {
+                // Append the new object to the existing data or create a new array with it
+                const updatedData = produce(carData, draft => {
+                    // Assuming data.result is an array of objects and you want to merge each with modalState
+                    data.result.forEach(item => {
+                        draft.push({
+                            ...item, // Spread the properties of the current item
+                            brand: modalState.brand, // Add modalState properties
+                            model: modalState.model,
+                            variant: modalState.variant,
+                            fuelType: modalState.fuelType
+                        });
+                    });
+                });
+                setCarData(updatedData);
+                setIsModalOpen(false);
+                setModalState(initialState);
+                toast.success("Car data updated successfully");
+            } else {
+                toast.error("We're sorry, something went wrong. Please try again later.");
+            }
+            setLoading(false);
+        } catch (error) {
+            setLoading(false);
+            toast.error(error.message);
+        }
     };
 
     // When our cell renderer calls updateMyData, we'll use
@@ -573,10 +616,10 @@ export default function Home() {
                         Header: "Ground Clearance",
                         accessor: "groundClearance"
                     },
-                    {
-                        Header: "Kerb Weight",
-                        accessor: "kerbWeight"
-                    }
+                    // {
+                    //     Header: "Kerb Weight",
+                    //     accessor: "kerbWeight"
+                    // }
                 ]
             },
             {
@@ -795,8 +838,8 @@ export default function Home() {
                                 }
                             />
                         </label>
-                        <div className="grid grid-cols-[50%,50%]">
-                            <label className="mr-4 block">
+                        <div className="grid">
+                            <label className="block">
                                 <span className="block text-sm font-medium text-slate-800">
                                     Model
                                 </span>
@@ -805,6 +848,7 @@ export default function Home() {
                                     type="text"
                                     placeholder="Nexon"
                                     maxLength="20"
+                                    required
                                     autoFocus
                                     value={modalState.model}
                                     onChange={event =>
@@ -812,64 +856,17 @@ export default function Home() {
                                     }
                                 />
                             </label>
-                            <label>
-                                <span className="block text-sm font-medium text-slate-800">
-                                    Type
-                                </span>
-                                <select
-                                    name="type"
-                                    className="mt-2 block h-10 w-full rounded-md bg-white py-2 px-3 pr-8 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                                    onChange={event => {
-                                        setModalState({ ...modalState, type: event.target.value });
-                                    }}
-                                    value={modalState.type}
-                                    required
-                                >
-                                    {[
-                                        "SUV",
-                                        "Sedan",
-                                        "Hatchback",
-                                        "Compact SUV",
-                                        "Compact Sedan"
-                                    ].map(carType => {
-                                        return (
-                                            <option key={carType} value={carType}>
-                                                {carType}
-                                            </option>
-                                        );
-                                    })}
-                                </select>
-                            </label>
                         </div>
                         <div className="grid grid-cols-[50%,50%]">
-                            <label className="block">
-                                <span className="block text-sm font-medium text-slate-800">
-                                    Price
-                                </span>
-                                <div className="flex items-center justify-between">
-                                    <input
-                                        className="mt-2 mr-4 block h-10 w-full appearance-none rounded-md bg-white px-3 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                                        type="text"
-                                        placeholder="1000000"
-                                        value={modalState.price}
-                                        onChange={event =>
-                                            setModalState({
-                                                ...modalState,
-                                                price: event.target.value
-                                            })
-                                        }
-                                    />
-                                </div>
-                            </label>
                             <label className="block">
                                 <span className="block text-sm font-medium text-slate-800">
                                     Variant
                                 </span>
                                 <div className="flex items-center justify-between">
                                     <input
-                                        className="mt-2 block h-10 w-full appearance-none rounded-md bg-white p-3 text-sm leading-tight text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2  focus:ring-gray-900 md:w-full "
+                                        className="mt-2 mr-4 block h-10 w-full appearance-none rounded-md bg-white px-3 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
                                         type="text"
-                                        placeholder="XM Plus (S)"
+                                        placeholder="Creative"
                                         value={modalState.variant}
                                         onChange={event =>
                                             setModalState({
@@ -877,13 +874,41 @@ export default function Home() {
                                                 variant: event.target.value
                                             })
                                         }
+                                        required
                                     />
                                 </div>
                             </label>
+                            <label>
+                                <span className="block text-sm font-medium text-slate-800">
+                                    Fuel Type
+                                </span>
+                                <select
+                                    name="type"
+                                    className="mt-2 block h-10 w-full rounded-md bg-white py-2 px-3 pr-8 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
+                                    onChange={event => {
+                                        setModalState({
+                                            ...modalState,
+                                            fuelType: event.target.value
+                                        });
+                                    }}
+                                    value={modalState.fuelType}
+                                    required
+                                    defaultValue="Petrol"
+                                >
+                                    {["Petrol", "Diesel", "CNG", "Electric"].map(fuelType => {
+                                        return (
+                                            <option key={fuelType} value={fuelType}>
+                                                {fuelType}
+                                            </option>
+                                        );
+                                    })}
+                                </select>
+                            </label>
                         </div>
-                        <button className="mt-0 flex h-[44px] items-center justify-center rounded-md bg-slate-900 py-2.5 px-4 text-white hover:bg-slate-700">
-                            Submit
-                        </button>
+                        <Button disabled={loading}>
+                            {loading && <Loader className="mr-2 h-4 w-4 animate-spin" />}
+                            {loading ? "Please wait" : "Submit"}
+                        </Button>
                     </form>
                 </div>
             </Dialog>
