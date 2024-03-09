@@ -1,7 +1,7 @@
 [
     {
         "brand": "Tata",
-        "price": "745000",
+        "price": "Rs.7,45,000",
         "model": "Altroz",
         "type": "Hatchback",
         "variant": "XM Plus",
@@ -40,7 +40,7 @@
     },
     {
         "brand": "Hyundai",
-        "price": "719000",
+        "price": "Rs.7,19,000",
         "model": "i20",
         "type": "Hatchback",
         "variant": "Magna",

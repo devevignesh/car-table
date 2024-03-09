@@ -1,7 +1,7 @@
 [
     {
         "brand": "Tata",
-        "price": "1100000",
+        "price": "Rs.11,00,000",
         "model": "Nexon",
         "type": "Compact SUV",
         "variant": "XZ Plus",
@@ -40,7 +40,7 @@
     },
     {
         "brand": "Hyundai",
-        "price": "976000",
+        "price": "Rs.9,76,000",
         "model": "Venue",
         "type": "Compact SUV",
         "variant": "S (O)",
@@ -79,7 +79,7 @@
     },
     {
         "brand": "Suzuki",
-        "price": "965000",
+        "price": "Rs.9,65,000",
         "model": "Brezza",
         "type": "Compact SUV",
         "variant": "VXi",

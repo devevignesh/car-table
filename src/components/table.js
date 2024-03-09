@@ -6,7 +6,6 @@ import {
     ChevronRightIcon,
     ChevronDoubleRightIcon,
     ArrowsRightLeftIcon,
-    PlusIcon
 } from "@heroicons/react/20/solid";
 import { FunnelIcon } from "@heroicons/react/24/outline";
 import cx from "classnames";
@@ -146,7 +145,7 @@ const defaultColumn = {
     Cell: EditableCell
 };
 
-function Table({ columns, data, updateTableData, skipPageReset, setIsModalOpen }) {
+function Table({ columns, data, updateTableData, skipPageReset }) {
     // Use the state and functions returned from useTable to build your UI
     const {
         getTableProps,
@@ -210,14 +209,13 @@ function Table({ columns, data, updateTableData, skipPageReset, setIsModalOpen }
                 {/* // FIXME: mobile responsive */}
                 <div className="flex justify-end items-center">
                     <Export carData={data} />
-                    <div>
+                    {/* <div>
                         <button
-                            className="relative font-sm bg-black inline-flex items-center text-white rounded-md px-[12px] py-[10px] text-sm font-medium leading-[16px] shadow-sm hover:bg-black/80 sm:px-[8px]"
-                            onClick={() => setIsModalOpen(true)}
+                            className="relative font-sm inline-flex items-center border border-gray-300 bg-gray-900 py-[10px] text-sm font-medium text-white rounded-md px-[12px] sm:px-[8px]  hover:bg-primary/90"
                         >
-                            Add car
+                           Actions
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="block w-full overflow-x-auto">

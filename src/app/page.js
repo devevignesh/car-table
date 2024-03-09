@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Balancer from "react-wrap-balancer";
 import { toast } from "react-hot-toast";
 import { produce } from "immer";
-import { TrashIcon, ArrowPathIcon } from "@heroicons/react/20/solid";
+import { TrashIcon, ArrowPathIcon, PlusIcon } from "@heroicons/react/20/solid";
 import { Card, Title, BarChart, Subtitle } from "@tremor/react";
 import { FunnelIcon } from "@heroicons/react/24/outline";
 import Table, { SelectColumnFilter } from "../components/table";
@@ -16,6 +16,8 @@ import Feedback from "../components/feedback";
 import compactSUV from "./lib/mock/compactSUV.json";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
+import AutoCompleteList from "@/components/autocomplete-list";
+import { lookupModel, lookupVarintByModel } from "@/lib/lookup";
 
 const initialState = {
     brand: "",
@@ -62,9 +64,12 @@ export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [skipPageReset, setSkipPageReset] = React.useState(false);
     const [modalState, setModalState] = useState(initialState);
+    const [carModel, setCarModel] = useState([]);
+    const [carVariant, setCarVariant] = useState([]);
     const [loading, setLoading] = useState(false);
     const [barChartData, setBarChartData] = useState([]);
     const [carTypeFilterValue, setCarTypeFilterValue] = useState("");
+    const [autocomplete, setAutocomplete] = useState([]);
     const inputRef = useAutoFocus();
     const carTypes = [...new Set(carData.map(car => car.type))];
     const [currentSegment, setCurrentSegment] = useState("compactSUV");
@@ -108,8 +113,7 @@ export default function Home() {
                 body: JSON.stringify({
                     brand: modalState.brand,
                     model: modalState.model,
-                    variant: modalState.variant,
-                    fuelType: modalState.fuelType
+                    variant: modalState.variant
                 })
             });
 
@@ -121,16 +125,13 @@ export default function Home() {
             const data = await res.json();
 
             if (data?.result?.length > 0) {
-                // Append the new object to the existing data or create a new array with it
                 const updatedData = produce(carData, draft => {
-                    // Assuming data.result is an array of objects and you want to merge each with modalState
                     data.result.forEach(item => {
                         draft.push({
-                            ...item, // Spread the properties of the current item
-                            brand: modalState.brand, // Add modalState properties
+                            ...item,
+                            brand: modalState.brand,
                             model: modalState.model,
-                            variant: modalState.variant,
-                            fuelType: modalState.fuelType
+                            variant: modalState.variant
                         });
                     });
                 });
@@ -174,6 +175,21 @@ export default function Home() {
 
     const handleCompareMore = () => {
         fetchNextSegmentData();
+    };
+
+    const onLookupModel = ({ brand }) => {
+        setCarModel(lookupModel({ brand }));
+    };
+
+    const onLookupVariant = ({ brand, model }) => {
+        setCarVariant(lookupVarintByModel({ brand, model }));
+    };
+
+    const handleCloseDialog = () => {
+        setModalState({ ...modalState, brand: "", variant: "", model: "" });
+        setCarModel([]);
+        setCarVariant([]);
+        setIsModalOpen(false);
     };
 
     const columns = useMemo(
@@ -615,7 +631,7 @@ export default function Home() {
                     {
                         Header: "Ground Clearance",
                         accessor: "groundClearance"
-                    },
+                    }
                     // {
                     //     Header: "Kerb Weight",
                     //     accessor: "kerbWeight"
@@ -736,20 +752,27 @@ export default function Home() {
                 different car options. With Car Table, you can easily add your shortlisted cars and
                 compare them with custom filters, charts, and widgets.
             </p>
-            <button
-                className="relative items-center inline-flex bg-blue-600 rounded-xl text-white font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-blue-500 transition"
-                onClick={handleCompareMore}
-            >
-                <span className="mr-2 hidden sm:block">Compare more</span>{" "}
-                <ArrowPathIcon className="relative top-[1px] h-4 w-4" />
-            </button>
+            <div className="space-x-4">
+                <button
+                    className="relative items-center inline-flex bg-gray-900 rounded-md text-white font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-primary/90 transition"
+                    onClick={() => setIsModalOpen(true)}
+                >
+                    Add car
+                </button>
+                <button
+                    className="relative items-center inline-flex rounded-md text-slate-700 border font-medium px-4 py-3 sm:mt-10 mt-8 hover:border-gray-300 hover:bg-gray-50 transition"
+                    onClick={handleCompareMore}
+                >
+                    <span className="mr-2 hidden sm:block">Compare more</span>{" "}
+                    <ArrowPathIcon className="relative top-[1px] h-4 w-4" />
+                </button>
+            </div>
             <div className="py-16">
                 <Table
                     columns={columns}
                     data={carData}
                     updateTableData={updateTableData}
                     skipPageReset={skipPageReset}
-                    setIsModalOpen={setIsModalOpen}
                 />
             </div>
             <div className="mx-auto pb-10">
@@ -814,7 +837,7 @@ export default function Home() {
             <Dialog
                 inputRef={inputRef}
                 show={isModalOpen}
-                setIsOpen={setIsModalOpen}
+                setIsOpen={handleCloseDialog}
                 title="Add Car"
             >
                 <div className="sm:flex sm:items-start">
@@ -824,81 +847,108 @@ export default function Home() {
                     >
                         <label className="block">
                             <span className="block text-sm font-medium text-slate-800">Brand</span>
-                            <input
-                                className="mt-2 block h-10 w-full appearance-none rounded-md bg-white px-3 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                                type="text"
-                                placeholder="Tata"
-                                maxLength="20"
-                                required
-                                autoFocus
-                                ref={inputRef}
+                            <select
+                                id="brand"
+                                name="type"
+                                className="mt-2 block h-10 w-full rounded-md bg-white py-2 px-3 pr-8 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
+                                onChange={({ target }) => {
+                                    const { value } = target;
+                                    if (value.length) {
+                                        setModalState({ ...modalState, brand: value, variant: "" });
+                                        setCarVariant([]);
+                                        onLookupModel({ brand: value });
+                                    } else {
+                                        setModalState({ ...modalState, brand: "" });
+                                    }
+                                }}
                                 value={modalState.brand}
-                                onChange={event =>
-                                    setModalState({ ...modalState, brand: event.target.value })
-                                }
-                            />
+                                required
+                            >
+                                <option value="">Select a brand</option>
+                                {[
+                                    "Maruti",
+                                    "Tata",
+                                    "Kia",
+                                    "Toyota",
+                                    "Hyundai",
+                                    "Mahindra",
+                                    "Honda",
+                                    "MG",
+                                    "Skoda",
+                                    "Jeep",
+                                    "Renault",
+                                    "Nissan",
+                                    "Volkswagen",
+                                    "Citroen"
+                                ].map(brand => {
+                                    return (
+                                        <option key={brand} value={brand}>
+                                            {brand}
+                                        </option>
+                                    );
+                                })}
+                            </select>
                         </label>
                         <div className="grid">
                             <label className="block">
                                 <span className="block text-sm font-medium text-slate-800">
                                     Model
                                 </span>
-                                <input
-                                    className="mt-2 block h-10 w-full appearance-none rounded-md bg-white px-3 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                                    type="text"
-                                    placeholder="Nexon"
-                                    maxLength="20"
-                                    required
-                                    autoFocus
+                                <select
+                                    id="model"
+                                    name="type"
+                                    className="mt-2 block h-10 w-full rounded-md bg-white py-2 px-3 pr-8 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
+                                    onChange={({ target }) => {
+                                        const { value } = target;
+                                        if (value.length) {
+                                            setModalState({ ...modalState, model: value });
+                                            onLookupVariant({
+                                                brand: modalState.brand,
+                                                model: value
+                                            });
+                                        } else {
+                                            setModalState({ ...modalState, model: "" });
+                                        }
+                                    }}
                                     value={modalState.model}
-                                    onChange={event =>
-                                        setModalState({ ...modalState, model: event.target.value })
-                                    }
-                                />
+                                    required
+                                    disabled={carModel?.length === 0}
+                                >
+                                    <option value="">Select a model</option>
+                                    {carModel?.map(model => {
+                                        return (
+                                            <option key={model} value={model}>
+                                                {model}
+                                            </option>
+                                        );
+                                    })}
+                                </select>
                             </label>
                         </div>
-                        <div className="grid grid-cols-[50%,50%]">
+                        <div className="grid">
                             <label className="block">
                                 <span className="block text-sm font-medium text-slate-800">
                                     Variant
                                 </span>
-                                <div className="flex items-center justify-between">
-                                    <input
-                                        className="mt-2 mr-4 block h-10 w-full appearance-none rounded-md bg-white px-3 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                                        type="text"
-                                        placeholder="Creative"
-                                        value={modalState.variant}
-                                        onChange={event =>
-                                            setModalState({
-                                                ...modalState,
-                                                variant: event.target.value
-                                            })
-                                        }
-                                        required
-                                    />
-                                </div>
-                            </label>
-                            <label>
-                                <span className="block text-sm font-medium text-slate-800">
-                                    Fuel Type
-                                </span>
                                 <select
+                                    id="variant"
                                     name="type"
                                     className="mt-2 block h-10 w-full rounded-md bg-white py-2 px-3 pr-8 text-sm text-slate-800 shadow-sm ring-1 ring-gray-300 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
                                     onChange={event => {
                                         setModalState({
                                             ...modalState,
-                                            fuelType: event.target.value
+                                            variant: event.target.value
                                         });
                                     }}
-                                    value={modalState.fuelType}
+                                    value={modalState.variant}
                                     required
-                                    defaultValue="Petrol"
+                                    disabled={carVariant?.length === 0}
                                 >
-                                    {["Petrol", "Diesel", "CNG", "Electric"].map(fuelType => {
+                                    <option value="">Select a variant</option>
+                                    {carVariant?.map(variant => {
                                         return (
-                                            <option key={fuelType} value={fuelType}>
-                                                {fuelType}
+                                            <option key={variant} value={variant}>
+                                                {variant}
                                             </option>
                                         );
                                     })}

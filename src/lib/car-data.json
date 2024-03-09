@@ -1,0 +1,1718 @@
+[
+    {
+        "brand": "Maruti",
+        "model": [
+            "Swift",
+            "Brezza",
+            "Ertiga",
+            "Baleno",
+            "FRONX",
+            "Dzire",
+            "Wagon R",
+            "Alto K10",
+            "Jimny",
+            "Celerio",
+            "Alto",
+            "Eeco",
+            "XL6",
+            "Ignis",
+            "Ciaz",
+            "S-Presso",
+            "Invicto",
+            "Ertiga Tour",
+            "Alto 800 tour",
+            "Eeco Cargo",
+            "Grand Vitara",
+            "Super Carry",
+            "Swift Dzire Tour",
+            "Wagon R tour"
+        ],
+        "variant": [
+            {
+                "model": "Swift",
+                "versions": [
+                    "LXI",
+                    "VXI",
+                    "VXI AMT",
+                    "ZXI",
+                    "VXI CNG",
+                    "ZXI AMT",
+                    "ZXI Plus",
+                    "ZXI Plus DT",
+                    "ZXI CNG",
+                    "ZXI Plus AMT",
+                    "ZXI Plus DT AMT"
+                ]
+            },
+            {
+                "model": "Brezza",
+                "versions": [
+                    "Lxi",
+                    "Lxi CNG",
+                    "Vxi",
+                    "Vxi CNG",
+                    "Vxi AT",
+                    "Zxi",
+                    "Zxi DT",
+                    "Zxi CNG",
+                    "Zxi CNG DT",
+                    "Zxi AT",
+                    "Zxi Plus",
+                    "Zxi AT DT",
+                    "Zxi Plus DT",
+                    "Zxi Plus AT",
+                    "Zxi Plus AT DT"
+                ]
+            },
+            {
+                "model": "Ertiga",
+                "versions": [
+                    "Lxi (O)",
+                    "VXi (O)",
+                    "VXi (O) CNG",
+                    "Zxi (O)",
+                    "VXI AT",
+                    "ZXI Plus",
+                    "ZXI (O) CNG",
+                    "ZXI AT",
+                    "ZXI Plus AT"
+                ]
+            },
+            {
+                "model": "Baleno",
+                "versions": [
+                    "Sigma",
+                    "Delta",
+                    "Delta AMT",
+                    "Delta CNG",
+                    "Zeta",
+                    "Zeta AMT",
+                    "Zeta CNG",
+                    "Alpha",
+                    "Alpha AMT"
+                ]
+            },
+            {
+                "model": "FRONX",
+                "versions": [
+                    "Sigma",
+                    "Delta",
+                    "Sigma CNG",
+                    "Delta Plus",
+                    "Delta AMT",
+                    "Delta Plus AMT",
+                    "Delta CNG",
+                    "Delta Plus Turbo",
+                    "Zeta Turbo",
+                    "Alpha Turbo",
+                    "Alpha Turbo DT",
+                    "Zeta Turbo AT",
+                    "Alpha Turbo AT",
+                    "Alpha Turbo DT AT"
+                ]
+            },
+            {
+                "model": "Dzire",
+                "versions": [
+                    "Dzire LXI",
+                    "Dzire VXI",
+                    "Dzire VXI AT",
+                    "Dzire ZXI",
+                    "Dzire VXI CNG",
+                    "Dzire ZXI AT",
+                    "Dzire ZXI Plus",
+                    "Dzire ZXI CNG",
+                    "Dzire ZXI Plus AT"
+                ]
+            },
+            {
+                "model": "Wagon R",
+                "versions": [
+                    "LXI",
+                    "VXI",
+                    "ZXI",
+                    "LXI CNG",
+                    "VXI AT",
+                    "ZXI Plus",
+                    "ZXI AT",
+                    "ZXI Plus Dual Tone",
+                    "VXI CNG",
+                    "ZXI Plus AT",
+                    "ZXI Plus AT Dual tone"
+                ]
+            },
+            {
+                "model": "Alto K10",
+                "versions": [
+                    "STD",
+                    "LXI",
+                    "VXI",
+                    "VXI Plus",
+                    "VXI AT",
+                    "LXI S-CNG",
+                    "VXI Plus AT",
+                    "VXI S-CNG"
+                ]
+            },
+            {
+                "model": "Jimny",
+                "versions": [
+                    "Zeta",
+                    "Alpha",
+                    "Zeta AT",
+                    "Alpha Dual Tone",
+                    "Alpha AT",
+                    "Alpha Dual Tone AT"
+                ]
+            },
+            {
+                "model": "Celerio",
+                "versions": [
+                    "LXI",
+                    "VXI",
+                    "ZXI",
+                    "VXI AMT",
+                    "ZXI Plus",
+                    "ZXI AMT",
+                    "VXI CNG",
+                    "ZXI Plus AMT"
+                ]
+            },
+            {
+                "model": "Alto",
+                "versions": [
+                    "STD Opt",
+                    "LXI Opt",
+                    "VXI",
+                    "VXI Plus",
+                    "LXI Opt S-CNG"
+                ]
+            },
+            {
+                "model": "Eeco",
+                "versions": [
+                    "5 Seater STD",
+                    "7 Seater STD",
+                    "5 Seater AC",
+                    "5 Seater AC CNG"
+                ]
+            },
+            {
+                "model": "XL6",
+                "versions": [
+                    "Zeta",
+                    "Zeta CNG",
+                    "Alpha",
+                    "Zeta AT",
+                    "Alpha Plus",
+                    "Alpha Plus Dual Tone",
+                    "Alpha AT",
+                    "Alpha Plus AT",
+                    "Alpha Plus AT Dual Tone"
+                ]
+            },
+            {
+                "model": "Ignis",
+                "versions": [
+                    "Sigma",
+                    "Delta",
+                    "Delta AMT",
+                    "Zeta",
+                    "Zeta AMT",
+                    "Alpha",
+                    "Alpha AMT"
+                ]
+            },
+            {
+                "model": "Ciaz",
+                "versions": [
+                    "Sigma",
+                    "Delta",
+                    "Zeta",
+                    "Delta AT",
+                    "Alpha",
+                    "Zeta AT",
+                    "Alpha AT"
+                ]
+            },
+            {
+                "model": "S-Presso",
+                "versions": [
+                    "STD",
+                    "LXi",
+                    "VXI",
+                    "VXi Plus",
+                    "VXi Opt AT",
+                    "LXI CNG",
+                    "VXi Plus Opt AT",
+                    "VXI CNG"
+                ]
+            },
+            {
+                "model": "Invicto",
+                "versions": [
+                    "Zeta Plus 7Str",
+                    "Zeta Plus 8Str",
+                    "Alpha Plus 7Str"
+                ]
+            },
+            {
+                "model": "Ertiga Tour",
+                "versions": ["STD", "STD CNG"]
+            },
+            {
+                "model": "Alto 800 tour",
+                "versions": ["H1 (O)"]
+            },
+            {
+                "model": "Eeco Cargo",
+                "versions": ["STD", "STD CNG", "STD AC CNG"]
+            },
+            {
+                "model": "Grand Vitara",
+                "versions": [
+                    "Sigma",
+                    "Delta",
+                    "Delta CNG",
+                    "Delta AT",
+                    "Zeta",
+                    "Zeta CNG",
+                    "Zeta AT",
+                    "Alpha",
+                    "Alpha DT",
+                    "Alpha AT",
+                    "Alpha AWD",
+                    "Alpha AT DT",
+                    "Alpha AWD DT",
+                    "Zeta Plus Hybrid CVT",
+                    "Zeta Plus Hybrid CVT DT",
+                    "Alpha Plus Hybrid CVT",
+                    "Alpha Plus Hybrid CVT DT"
+                ]
+            },
+            {
+                "model": "Swift Dzire Tour",
+                "versions": ["S (O)", "S CNG (O)"]
+            },
+            {
+                "model": "Wagon R tour",
+                "versions": ["H3 PETROL", "H3 CNG"]
+            }
+        ]
+    },
+    {
+        "brand": "Tata",
+        "model": [
+            "Punch",
+            "Nexon",
+            "Harrier",
+            "Safari",
+            "Tiago",
+            "Altroz",
+            "Punch EV",
+            "Nexon EV",
+            "Tiago EV",
+            "Tigor",
+            "Tigor EV",
+            "Tiago NRG"
+        ],
+        "variant": [
+            {
+                "model": "Punch",
+                "versions": [
+                    "Pure",
+                    "Pure Rhythm",
+                    "Adventure",
+                    "Pure CNG",
+                    "Adventure Rhythm",
+                    "Adventure AMT",
+                    "Accomplished",
+                    "Adventure CNG",
+                    "Adventure Rhythm AMT",
+                    "Accomplished Dazzle",
+                    "Adventure Rhythm CNG",
+                    "Accomplished S",
+                    "Accomplished AMT",
+                    "Accomplished Dazzle S",
+                    "Accomplished Dazzle AMT",
+                    "Creative DT",
+                    "Accomplished S AMT",
+                    "Accomplished CNG",
+                    "Creative S DT",
+                    "Accomplished Dazzle S AMT",
+                    "Creative AMT DT",
+                    "Creative Flagship DT",
+                    "Accomplished Dazzle S CNG",
+                    "Creative S AMT DT",
+                    "Creative Flagship AMT DT"
+                ]
+            },
+            {
+                "model": "Nexon",
+                "versions": [
+                    "Smart",
+                    "Smart Plus",
+                    "Pure",
+                    "Smart Plus S",
+                    "Pure S",
+                    "Creative",
+                    "Pure Diesel",
+                    "Creative DT",
+                    "Pure S Diesel",
+                    "Creative AMT",
+                    "Creative Plus",
+                    "Creative DT AMT",
+                    "Creative Plus DT",
+                    "Creative DCA",
+                    "Creative Plus S",
+                    "Creative DT DCA",
+                    "Creative Plus S DT",
+                    "Creative Diesel",
+                    "Creative Plus AMT",
+                    "Creative DT Diesel",
+                    "Creative Plus DT AMT",
+                    "Fearless DT",
+                    "FearlessPR DT",
+                    "Creative Plus DCA",
+                    "Creative Plus S AMT",
+                    "Creative Diesel AMT",
+                    "Creative Plus DT DCA",
+                    "Creative Plus S DT AMT",
+                    "Fearless Plus DT",
+                    "Fearless S DT",
+                    "FearlessPR Plus DT",
+                    "FearlessPR S DT",
+                    "Creative DT Diesel AMT",
+                    "Creative Plus Diesel",
+                    "Creative Plus DT Diesel",
+                    "Creative Plus S DCA",
+                    "Creative Plus S DT DCA",
+                    "Fearless Plus S DT",
+                    "FearlessPR Plus S DT",
+                    "Creative Plus S Diesel",
+                    "Creative Plus S DT Diesel",
+                    "Fearless DT DCA",
+                    "FearlessPR DT DCA",
+                    "Creative Plus Diesel AMT",
+                    "Creative Plus DT Diesel AMT",
+                    "Fearless DT Diesel",
+                    "FearlessPR DT Diesel",
+                    "Fearless Plus DT DCA",
+                    "Fearless S DT DCA",
+                    "FearlessPR Plus DT DCA",
+                    "FearlessPR S DT DCA",
+                    "Creative Plus S Diesel AMT",
+                    "Creative Plus S DT Diesel AMT",
+                    "Fearless Plus DT Diesel",
+                    "Fearless S DT Diesel",
+                    "FearlessPR Plus DT Diesel",
+                    "FearlessPR S DT Diesel",
+                    "Fearless DT Diesel AMT",
+                    "FearlessPR DT Diesel AMT",
+                    "Fearless Plus S DT DCA",
+                    "FearlessPR Plus S DT DCA",
+                    "Fearless Plus S DT Diesel",
+                    "FearlessPR Plus S DT Diesel",
+                    "Fearless Plus DT Diesel AMT",
+                    "Fearless S DT Diesel AMT",
+                    "FearlessPR Plus DT Diesel AMT",
+                    "FearlessPR S DT Diesel AMT",
+                    "Fearless Plus S DT Diesel AMT",
+                    "FearlessPR Plus S DT Diesel AMT"
+                ]
+            },
+            {
+                "model": "Harrier",
+                "versions": [
+                    "Smart",
+                    "Smart (O)",
+                    "Pure",
+                    "Pure (O)",
+                    "Pure Plus",
+                    "Pure Plus S",
+                    "Pure Plus AT",
+                    "Pure Plus S Dark",
+                    "Adventure",
+                    "Pure Plus S AT",
+                    "Pure Plus S Dark AT",
+                    "Adventure Plus",
+                    "Adventure Plus Dark",
+                    "Adventure Plus A",
+                    "Fearless",
+                    "Adventure Plus AT",
+                    "Fearless Dark",
+                    "Adventure Plus Dark AT",
+                    "Adventure Plus A AT",
+                    "Fearless AT",
+                    "Fearless Plus",
+                    "Fearless Dark AT",
+                    "Fearless Plus Dark",
+                    "Fearless Plus AT",
+                    "Fearless Plus Dark AT"
+                ]
+            },
+            {
+                "model": "Safari",
+                "versions": [
+                    "Smart",
+                    "Smart (O)",
+                    "Pure",
+                    "Pure (O)",
+                    "Pure Plus",
+                    "Pure Plus S",
+                    "Pure Plus AT",
+                    "Pure Plus S Dark",
+                    "Adventure",
+                    "Pure Plus S AT",
+                    "Pure Plus S Dark AT",
+                    "Adventure Plus",
+                    "Adventure Plus Dark",
+                    "Adventure Plus A",
+                    "Adventure Plus AT",
+                    "Accomplished",
+                    "Accomplished Dark",
+                    "Adventure Plus Dark AT",
+                    "Adventure Plus A AT",
+                    "Accomplished AT",
+                    "Accomplished Plus",
+                    "Accomplished Plus 6S",
+                    "Accomplished Dark AT",
+                    "Accomplished Plus Dark",
+                    "Accomplished Plus Dark 6S",
+                    "Accomplished Plus AT",
+                    "Accomplished Plus 6S AT",
+                    "Accomplished Plus Dark AT",
+                    "Accomplished Plus Dark 6S AT"
+                ]
+            },
+            {
+                "model": "Tiago",
+                "versions": [
+                    "XE",
+                    "XM",
+                    "XT Option",
+                    "XT",
+                    "XE CNG",
+                    "XT Rhythm",
+                    "XM CNG",
+                    "XTA AMT",
+                    "XZ Plus Option",
+                    "XZ Plus",
+                    "XT CNG",
+                    "XZ Plus DT",
+                    "XT Rhythm CNG",
+                    "XZA Plus Option AMT",
+                    "XZA Plus AMT",
+                    "XTA AMT CNG",
+                    "XZA Plus DT AMT",
+                    "XZ Plus CNG",
+                    "XZ Plus DT CNG",
+                    "XZA Plus AMT CNG",
+                    "XZA Plus DT AMT CNG"
+                ]
+            },
+            {
+                "model": "Altroz",
+                "versions": [
+                    "XE",
+                    "XM",
+                    "XM S",
+                    "XM Plus",
+                    "XE CNG",
+                    "XT",
+                    "XM Plus S",
+                    "XM Plus CNG",
+                    "XZ",
+                    "XMA Plus DCT",
+                    "XM Plus Diesel",
+                    "XM Plus S CNG",
+                    "XTA DCT",
+                    "XMA Plus S DCT",
+                    "XZ Plus S",
+                    "XZ Turbo",
+                    "XT Diesel",
+                    "XM Plus S Diesel",
+                    "XZ Plus S Dark Edition",
+                    "XZ CNG",
+                    "XZ Plus OS",
+                    "XZA DCT",
+                    "XZ Plus S Turbo",
+                    "XZ Diesel",
+                    "XZA Plus S DCT",
+                    "XZ Plus S Turbo Dark Edition",
+                    "XZ Plus S CNG",
+                    "XZA Plus S Dark Edition DCT",
+                    "XZ Plus S Diesel",
+                    "XZA Plus OS DCT",
+                    "XZ Plus OS CNG",
+                    "XZ Plus S Dark Edition Diesel"
+                ]
+            },
+            {
+                "model": "Punch EV",
+                "versions": [
+                    "Smart",
+                    "Smart Plus",
+                    "Adventure",
+                    "Adventure S",
+                    "Empowered",
+                    "Adventure LR",
+                    "Empowered S",
+                    "Empowered Plus",
+                    "Adventure LR AC FC",
+                    "Adventure S LR",
+                    "Empowered Plus S",
+                    "Empowered LR",
+                    "Adventure S LR AC FC",
+                    "Empowered Plus LR",
+                    "Empowered S LR",
+                    "Empowered LR AC FC",
+                    "Empowered Plus LR AC FC",
+                    "Empowered Plus S LR",
+                    "Empowered S LR AC FC",
+                    "Empowered Plus S LR AC FC"
+                ]
+            },
+            {
+                "model": "Nexon EV",
+                "versions": [
+                    "Creative Plus",
+                    "Fearless",
+                    "Fearless Plus",
+                    "Fearless LR",
+                    "Fearless Plus S",
+                    "Empowered",
+                    "Fearless Plus LR",
+                    "Fearless Plus S LR",
+                    "Empowered Plus LR"
+                ]
+            },
+            {
+                "model": "Tiago EV",
+                "versions": [
+                    "XE MR",
+                    "XT MR",
+                    "XT LR",
+                    "XZ Plus LR",
+                    "XZ Plus LR ACFC",
+                    "XZ Plus Tech LUX LR",
+                    "XZ Plus Tech LUX LR ACFC"
+                ]
+            },
+            {
+                "model": "Tigor",
+                "versions": [
+                    "XE",
+                    "XM",
+                    "XZ",
+                    "XMA AMT",
+                    "XM CNG",
+                    "XZ Plus",
+                    "XZ CNG",
+                    "XZA Plus AMT",
+                    "XZA AMT CNG",
+                    "XZ Plus CNG",
+                    "XZA Plus AMT CNG"
+                ]
+            },
+            {
+                "model": "Tigor EV",
+                "versions": [
+                    "XE",
+                    "XT",
+                    "XZ Plus",
+                    "XZ Plus LUX"
+                ]
+            },
+            {
+                "model": "Tiago NRG",
+                "versions": [
+                    "XT",
+                    "XZ",
+                    "XT CNG",
+                    "XZA AMT",
+                    "XZ CNG",
+                    "XZA AMT CNG"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "Kia",
+        "model": ["Seltos", "Sonet", "EV6", "Carens"],
+        "variant": [
+            {
+                "model": "Seltos",
+                "versions": [
+                    "HTE",
+                    "HTE Diesel",
+                    "HTE Diesel iMT",
+                    "HTK",
+                    "HTK Plus",
+                    "HTK Diesel",
+                    "HTK Diesel iMT",
+                    "HTK Plus Diesel",
+                    "HTK Plus Diesel iMT",
+                    "HTK Plus Turbo iMT",
+                    "HTX",
+                    "HTX IVT",
+                    "HTX Diesel",
+                    "HTX Diesel iMT",
+                    "HTX Diesel AT",
+                    "HTX Plus Diesel",
+                    "HTX Plus Diesel iMT",
+                    "HTX Plus Turbo iMT",
+                    "HTX Plus Turbo DCT",
+                    "GTX Plus S Diesel AT",
+                    "GTX Plus S Turbo DCT",
+                    "X-Line S DIesel AT",
+                    "X-Line S Turbo DCT",
+                    "GTX Plus Diesel AT",
+                    "GTX Plus Turbo DCT",
+                    "X-Line Diesel AT",
+                    "X-Line Turbo DCT"
+                ]
+            },
+            {
+                "model": "Sonet",
+                "versions": [
+                    "HTE",
+                    "HTK",
+                    "HTE Diesel",
+                    "HTK Plus",
+                    "HTK Diesel",
+                    "HTK Plus Turbo iMT",
+                    "HTK Plus Diesel",
+                    "HTX Turbo iMT",
+                    "HTX Diesel",
+                    "HTX Turbo DCT",
+                    "HTX Diesel iMT",
+                    "HTX Diesel AT",
+                    "HTX Plus Turbo iMT",
+                    "HTX Plus Diesel",
+                    "HTX Plus Diesel iMT",
+                    "GTX Plus Turbo DCT",
+                    "X-line Turbo DCT",
+                    "GTX Plus Diesel AT",
+                    "X-line Diesel AT"
+                ]
+            },
+            {
+                "model": "EV6",
+                "versions": ["GT line", "GT line AWD"]
+            },
+            {
+                "model": "Carens",
+                "versions": [
+                    "Premium",
+                    "Prestige",
+                    "Premium iMT",
+                    "Premium Diesel iMT",
+                    "Prestige iMT",
+                    "Prestige Diesel iMT",
+                    "Prestige Plus iMT",
+                    "Prestige Plus Diesel iMT",
+                    "Prestige Plus DCT",
+                    "Luxury iMT",
+                    "Luxury Diesel iMT",
+                    "Luxury Opt DCT",
+                    "Luxury Plus iMT 6 STR",
+                    "Luxury Plus iMT",
+                    "Luxury Opt Diesel AT",
+                    "Luxury Plus Diesel iMT",
+                    "Luxury Plus Diesel iMT 6 STR",
+                    "Luxury Plus DCT 6 STR",
+                    "Luxury Plus DCT",
+                    "X-Line DCT 6 STR",
+                    "Luxury Plus Diesel AT",
+                    "Luxury Plus Diesel AT 6 STR",
+                    "X-Line Diesel AT 6 STR"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "Toyota",
+        "model": [
+            "Fortuner",
+            "Innova Crysta",
+            "Land Cruiser 300",
+            "Urban Cruiser Hyryder",
+            "Hilux",
+            "Rumion",
+            "Vellfire",
+            "Camry",
+            "Fortuner Legender",
+            "Glanza",
+            "Innova Hycross"
+        ],
+        "variant": [
+            {
+                "model": "Fortuner",
+                "versions": [
+                    "4X2",
+                    "4X2 AT",
+                    "4X2 Diesel",
+                    "4X2 Diesel AT",
+                    "4X4 Diesel",
+                    "4X4 Diesel AT",
+                    "GR S 4X4 Diesel AT"
+                ]
+            },
+            {
+                "model": "Innova Crysta",
+                "versions": [
+                    "2.4 GX 7 STR",
+                    "2.4 GX 8 STR",
+                    "2.4 VX 7 STR",
+                    "2.4 VX 8 STR",
+                    "2.4 ZX 7 STR"
+                ]
+            },
+            {
+                "model": "Land Cruiser 300",
+                "versions": ["ZX"]
+            },
+            {
+                "model": "Urban Cruiser Hyryder",
+                "versions": [
+                    "E",
+                    "S",
+                    "S CNG",
+                    "S AT",
+                    "G",
+                    "G CNG",
+                    "G AT",
+                    "V",
+                    "S HYBRID",
+                    "V AT",
+                    "V AWD",
+                    "G HYBRID",
+                    "V HYBRID"
+                ]
+            },
+            {
+                "model": "Hilux",
+                "versions": ["STD", "High", "High AT"]
+            },
+            {
+                "model": "Rumion",
+                "versions": [
+                    "S",
+                    "S CNG",
+                    "G",
+                    "S AT",
+                    "V",
+                    "V AT"
+                ]
+            },
+            {
+                "model": "Vellfire",
+                "versions": ["Hi", "VIP Executive Lounge"]
+            },
+            {
+                "model": "Camry",
+                "versions": ["2.5 Hybrid"]
+            },
+            {
+                "model": "Fortuner Legender",
+                "versions": ["4x2 AT", "4x4 AT"]
+            },
+            {
+                "model": "Glanza",
+                "versions": [
+                    "Enticing Silver",
+                    "Insta Blue",
+                    "Gaming Grey",
+                    "Sportin Red",
+                    "Cafe White"
+                ]
+            },
+            {
+                "model": "Innova Hycross",
+                "versions": [
+                    "GX 7STR",
+                    "GX 8STR",
+                    "VX 7STR Hybrid",
+                    "VX 8STR Hybrid",
+                    "VX(O) 7STR Hybrid",
+                    "VX(O) 8STR Hybrid",
+                    "ZX Hybrid",
+                    "ZX(O) Hybrid"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "Hyundai",
+        "model": [
+            "Creta",
+            "Verna",
+            "Venue",
+            "Exter",
+            "i20",
+            "Aura",
+            "Alcazar",
+            "Tucson",
+            "Kona Electric",
+            "Venue N Line",
+            "Grand i10 Nios",
+            "i20 N-Line",
+            "IONIQ 5"
+        ],
+        "variant": [
+            {
+                "model": "Creta",
+                "versions": [
+                    "E",
+                    "EX",
+                    "E Diesel",
+                    "S",
+                    "EX Diesel",
+                    "S (O)",
+                    "S Diesel",
+                    "SX",
+                    "SX DT",
+                    "S (O) Diesel",
+                    "S (O) iVT",
+                    "SX Tech",
+                    "SX Tech DT",
+                    "SX (O)",
+                    "S (O) Diesel AT",
+                    "SX (O) DT",
+                    "SX Tech Diesel",
+                    "SX Tech iVT",
+                    "SX Tech Diesel DT",
+                    "SX Tech iVT DT",
+                    "SX (O) iVT",
+                    "SX (O) Diesel",
+                    "SX (O) iVT DT",
+                    "SX (O) Diesel DT",
+                    "SX (O) Diesel AT",
+                    "SX (O) Turbo DCT",
+                    "SX (O) Diesel AT DT",
+                    "SX (O) Turbo DCT DT"
+                ]
+            },
+            {
+                "model": "Verna",
+                "versions": [
+                    "EX",
+                    "S",
+                    "SX",
+                    "SX IVT",
+                    "SX Opt",
+                    "SX Turbo",
+                    "SX Turbo DT",
+                    "SX Opt Turbo",
+                    "SX Opt Turbo DT",
+                    "SX Turbo DCT",
+                    "SX Turbo DCT DT",
+                    "SX Opt IVT",
+                    "SX Opt Turbo DCT",
+                    "SX Opt Turbo DCT DT"
+                ]
+            },
+            {
+                "model": "Venue",
+                "versions": [
+                    "E",
+                    "S",
+                    "S Opt",
+                    "Executive Turbo",
+                    "S Opt Knight",
+                    "S Opt Turbo",
+                    "S Plus Diesel",
+                    "SX",
+                    "SX DT",
+                    "SX Knight",
+                    "S Opt Turbo DCT",
+                    "SX Knight DT",
+                    "SX Diesel",
+                    "SX Opt Turbo",
+                    "SX DT Diesel",
+                    "SX Opt Turbo DT",
+                    "SX Opt Knight Turbo",
+                    "SX Opt Knight Turbo DT",
+                    "SX Opt Turbo DCT",
+                    "SX Opt Diesel",
+                    "SX Opt Knight Turbo DCT",
+                    "SX Opt Turbo DCT DT",
+                    "SX Opt DT Diesel",
+                    "SX Opt Knight Turbo DCT DT"
+                ]
+            },
+            {
+                "model": "Exter",
+                "versions": [
+                    "EX",
+                    "EX Opt",
+                    "S",
+                    "S Opt",
+                    "S AMT",
+                    "SX",
+                    "S CNG",
+                    "SX DT",
+                    "SX Opt",
+                    "SX AMT",
+                    "SX DT AMT",
+                    "SX CNG",
+                    "SX Opt AMT",
+                    "SX Opt Connect",
+                    "SX Opt Connect DT",
+                    "SX Opt Connect AMT",
+                    "SX Opt Connect DT AMT"
+                ]
+            },
+            {
+                "model": "i20",
+                "versions": [
+                    "Era",
+                    "Magna",
+                    "Sportz",
+                    "Sportz DT",
+                    "Sportz Opt",
+                    "Sportz Opt DT",
+                    "Asta",
+                    "Sportz IVT",
+                    "Sportz Opt IVT",
+                    "Asta Opt",
+                    "Asta Opt DT",
+                    "Asta Opt IVT",
+                    "Asta Opt IVT DT"
+                ]
+            },
+            {
+                "model": "Aura",
+                "versions": [
+                    "E",
+                    "S",
+                    "SX",
+                    "S CNG",
+                    "SX Option",
+                    "SX Plus AMT",
+                    "SX CNG"
+                ]
+            },
+            {
+                "model": "Alcazar",
+                "versions": [
+                    "Prestige Turbo 7 Seater",
+                    "Prestige 7-Seater Diesel",
+                    "Platinum Turbo 7 Seater",
+                    "Platinum AE Turbo 7Str",
+                    "Prestige (O) 7-Seater Diesel AT",
+                    "Platinum 7-Seater Diesel",
+                    "Platinum (O) Turbo DCT",
+                    "Platinum (O) Turbo DCT 7 Seater",
+                    "Platinum AE 7Str Diesel",
+                    "Signature Diesel",
+                    "Signature (O) Turbo DCT",
+                    "Signature (O) Turbo DCT 7 Seater",
+                    "Signature (O) Dual Tone Turbo DCT",
+                    "Signature Dual Tone Diesel",
+                    "Signature (O) AE Turbo 7Str DT DCT",
+                    "Signature (O) AE Turbo 7Str DCT",
+                    "Platinum (O) 7-Seater Diesel AT",
+                    "Platinum (O) Diesel AT",
+                    "Signature (O) 7-Seater Diesel AT",
+                    "Signature (O) Diesel AT",
+                    "Signature (O) Dual Tone Diesel AT",
+                    "Signature (O) AE 7Str Diesel DT AT",
+                    "Signature (O) AE 7Str Diesel AT"
+                ]
+            },
+            {
+                "model": "Tucson",
+                "versions": [
+                    "Platinum AT",
+                    "Signature AT",
+                    "Platinum Diesel AT",
+                    "Signature AT DT",
+                    "Signature Diesel AT",
+                    "Signature Diesel AT DT",
+                    "Signature Diesel 4WD AT",
+                    "Signature Diesel 4WD AT DT"
+                ]
+            },
+            {
+                "model": "Kona Electric",
+                "versions": ["Kona Premium", "Kona Premium Dual Tone"]
+            },
+            {
+                "model": "Venue N Line",
+                "versions": [
+                    "N6 Turbo",
+                    "N6 Turbo DT",
+                    "N6 Turbo DCT",
+                    "N8 Turbo",
+                    "N6 Turbo DCT DT",
+                    "N8 Turbo DT",
+                    "N8 Turbo DCT",
+                    "N8 Turbo DCT DT"
+                ]
+            },
+            {
+                "model": "Grand i10 Nios",
+                "versions": [
+                    "Era",
+                    "Magna",
+                    "Sportz Executive",
+                    "Sportz",
+                    "Magna AMT",
+                    "Sportz DT",
+                    "Magna CNG",
+                    "Sportz Executive AMT",
+                    "Sportz AMT",
+                    "Asta",
+                    "Sportz CNG",
+                    "Asta AMT"
+                ]
+            },
+            {
+                "model": "i20 N-Line",
+                "versions": [
+                    "N6",
+                    "N6 Dual Tone",
+                    "N6 DCT",
+                    "N8",
+                    "N6 DCT Dual Tone",
+                    "N8 Dual Tone",
+                    "N8 DCT",
+                    "N8 DCT Dual Tone"
+                ]
+            },
+            {
+                "model": "IONIQ 5",
+                "versions": ["Long Range RWD"]
+            }
+        ]
+    },
+    {
+        "brand": "Mahindra",
+        "model": [
+            "Thar",
+            "Scorpio",
+            "XUV700",
+            "Bolero",
+            "Scorpio N",
+            "XUV300",
+            "Bolero Neo",
+            "XUV400 EV",
+            "Marazzo"
+        ],
+        "variant": [
+            {
+                "model": "Thar",
+                "versions": [
+                    "AX Opt 4-Str Hard Top Diesel",
+                    "LX 4-Str Hard Top Diesel RWD",
+                    "LX 4-Str Hard Top AT RWD",
+                    "AX Opt 4-Str Convert Top",
+                    "AX Opt 4-Str Convert Top Diesel",
+                    "AX Opt 4-Str Hard Top Diesel RWD",
+                    "LX 4-Str Hard Top",
+                    "Earth Edition",
+                    "LX 4-Str Hard Top MLD Diesel",
+                    "LX 4-Str Convert Top Diesel",
+                    "LX 4-Str Hard Top Diesel",
+                    "Earth Edition Diesel",
+                    "LX 4-Str Convert Top AT",
+                    "LX 4-Str Hard Top AT",
+                    "Earth Edition AT",
+                    "LX 4-Str Hard Top MLD Diesel AT",
+                    "LX 4-Str Convert Top Diesel AT",
+                    "LX 4-Str Hard Top Diesel AT",
+                    "Earth Edition Diesel AT"
+                ]
+            },
+            {
+                "model": "Scorpio",
+                "versions": ["S", "S 9 Seater", "S 11", "S 11 7CC"]
+            },
+            {
+                "model": "XUV700",
+                "versions": [
+                    "MX",
+                    "MX E",
+                    "MX Diesel",
+                    "MX E Diesel",
+                    "AX3",
+                    "AX3 E",
+                    "AX3 Diesel",
+                    "AX3 E Diesel",
+                    "AX5",
+                    "AX3 7 Str Diesel",
+                    "AX5 E",
+                    "AX3 AT",
+                    "AX5 Diesel",
+                    "AX3 E 7 Str Diesel",
+                    "AX5 7 Str",
+                    "AX3 Diesel AT",
+                    "AX5 E 7 Str",
+                    "AX5 7 Str Diesel",
+                    "AX5 AT",
+                    "AX5 Diesel AT",
+                    "AX5 7 Str Diesel AT",
+                    "AX7",
+                    "AX7 6 Str",
+                    "AX7 Diesel",
+                    "AX7 6 Str Diesel",
+                    "AX7 AT",
+                    "AX7 6Str AT",
+                    "AX7 6 Str Diesel AT",
+                    "AX7 Diesel AT Luxury Pack",
+                    "AX7 Diesel Luxury Pack",
+                    "AX7 6Str Diesel Luxury Pack",
+                    "AX7 AWD Diesel AT",
+                    "AX7 AT Luxury Pack",
+                    "AX7 6Str AT Luxury Pack",
+                    "AX7 Diesel AT",
+                    "AX7 6Str Diesel AT Luxury Pack",
+                    "AX7 Diesel AT Luxury Pack AWD"
+                ]
+            },
+            {
+                "model": "Bolero",
+                "versions": ["B4", "B6", "B6 Opt"]
+            },
+            {
+                "model": "Scorpio N",
+                "versions": [
+                    "Z2",
+                    "Z2 Diesel",
+                    "Z2 E",
+                    "Z2 Diesel E",
+                    "Z4",
+                    "Z4 Diesel",
+                    "Z4 E",
+                    "Z4 Diesel E",
+                    "Z6 Diesel",
+                    "Z4 AT",
+                    "Z8 Select",
+                    "Z4 Diesel AT",
+                    "Z8 Select Diesel",
+                    "Z4 Diesel 4x4",
+                    "Z6 Diesel AT",
+                    "Z8 Select AT",
+                    "Z4 Diesel E 4x4",
+                    "Z8",
+                    "Z8 Select Diesel AT",
+                    "Z8 Diesel",
+                    "Z8 AT",
+                    "Z8L",
+                    "Z8L 6 Str",
+                    "Z8 Diesel AT",
+                    "Z8L Diesel",
+                    "Z8L 6 Str Diesel",
+                    "Z8 Diesel 4x4",
+                    "Z8L AT",
+                    "Z8L 6 Str AT",
+                    "Z8L Diesel AT",
+                    "Z8L 6 Str Diesel AT",
+                    "Z8L Diesel 4x4",
+                    "Z8 Diesel 4x4 AT",
+                    "Z8L Diesel 4x4 AT"
+                ]
+            },
+            {
+                "model": "XUV300",
+                "versions": [
+                    "W2",
+                    "W4",
+                    "W4 Turbo",
+                    "W4 Diesel",
+                    "W6",
+                    "W6 Diesel",
+                    "W6 Turbo",
+                    "W6 AMT",
+                    "W8",
+                    "W8 DT",
+                    "W8 Turbo",
+                    "W8 Turbo DT",
+                    "W6 AMT Diesel",
+                    "W8 Opt",
+                    "W8 Opt DT",
+                    "W8 Opt Turbo",
+                    "W8 Diesel",
+                    "W8 DT Diesel",
+                    "W8 Opt Turbo DT",
+                    "W8 Opt AMT",
+                    "W8 Opt AMT DT",
+                    "W8 Opt Diesel",
+                    "W8 Opt DT Diesel",
+                    "W8 Opt AMT Diesel",
+                    "W8 Opt AMT DT Diesel"
+                ]
+            },
+            {
+                "model": "Bolero Neo",
+                "versions": [
+                    "N4",
+                    "N8",
+                    "N10 R",
+                    "N10 Option"
+                ]
+            },
+            {
+                "model": "XUV400 EV",
+                "versions": [
+                    "EC Pro 34.5 kWh",
+                    "EC",
+                    "EL Pro 34.5 kWh",
+                    "EC Fast Charger",
+                    "EL Pro DT 34.5 kWh",
+                    "EL Pro 39.4 kWh",
+                    "EL Pro DT 39.4 kWh",
+                    "EL Fast Charger",
+                    "EL Fast Charger DT"
+                ]
+            },
+            {
+                "model": "Marazzo",
+                "versions": [
+                    "M2",
+                    "M2 8Str",
+                    "M4 Plus",
+                    "M4 Plus 8Str",
+                    "M6 Plus",
+                    "M6 Plus 8Str"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "Honda",
+        "model": ["City", "Amaze", "City Hybrid", "Elevate"],
+        "variant": [
+            {
+                "model": "City",
+                "versions": [
+                    "SV",
+                    "V",
+                    "Elegant Edition",
+                    "VX",
+                    "V CVT",
+                    "Elegant Edition CVT",
+                    "ZX",
+                    "VX CVT",
+                    "ZX CVT"
+                ]
+            },
+            {
+                "model": "Amaze",
+                "versions": [
+                    "E",
+                    "S",
+                    "S CVT",
+                    "VX",
+                    "Elite Edition",
+                    "VX CVT",
+                    "Elite Edition CVT"
+                ]
+            },
+            {
+                "model": "City Hybrid",
+                "versions": ["V CVT", "ZX CVT"]
+            },
+            {
+                "model": "Elevate",
+                "versions": [
+                    "SV",
+                    "V",
+                    "V CVT",
+                    "VX",
+                    "VX CVT",
+                    "ZX",
+                    "ZX CVT"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "MG",
+        "model": ["Hector", "Astor", "Gloster", "Comet EV", "Hector Plus", "ZS EV"],
+        "variant": [
+            {
+                "model": "Hector",
+                "versions": [
+                    "1.5 Turbo Style",
+                    "1.5 Turbo Shine",
+                    "1.5 Turbo Shine CVT",
+                    "1.5 Turbo Select Pro",
+                    "2.0 Shine Diesel",
+                    "1.5 Turbo Smart Pro",
+                    "1.5 Turbo Select Pro CVT",
+                    "2.0 Select Pro Diesel",
+                    "1.5 Turbo Sharp Pro",
+                    "2.0 Smart Pro Diesel",
+                    "1.5 Turbo Sharp Pro CVT",
+                    "2.0 Sharp Pro Diesel",
+                    "1.5 Turbo Savvy Pro CVT"
+                ]
+            },
+            {
+                "model": "Astor",
+                "versions": [
+                    "Sprint",
+                    "Shine",
+                    "Select",
+                    "Select CVT",
+                    "Sharp Pro",
+                    "Smart Blackstorm",
+                    "Sharp Pro CVT",
+                    "Smart Blackstorm CVT",
+                    "Savvy Pro CVT",
+                    "Savvy Pro Sangria CVT",
+                    "Savvy Pro Sangria Turbo AT"
+                ]
+            },
+            {
+                "model": "Gloster",
+                "versions": [
+                    "Sharp 7 Str 4x2",
+                    "Savvy 6 Str 4x2",
+                    "Savvy 7 Str 4x2",
+                    "Blackstorm 4x2",
+                    "Blackstorm 6 Str 4x2",
+                    "Savvy 6 Str 4x4",
+                    "Savvy 7 Str 4x4",
+                    "Blackstorm 4x4",
+                    "Blackstorm 6 Str 4x4"
+                ]
+            },
+            {
+                "model": "Comet EV",
+                "versions": [
+                    "Executive",
+                    "Excite",
+                    "Excite FC",
+                    "Exclusive",
+                    "Exclusive FC"
+                ]
+            },
+            {
+                "model": "Hector Plus",
+                "versions": [
+                    "2.0 Style 7 Str Diesel",
+                    "2.0 Style Diesel",
+                    "1.5 Turbo Select Pro 7 Str",
+                    "2.0 Select Pro 7 Str Diesel",
+                    "1.5 Turbo Sharp Pro",
+                    "1.5 Turbo Sharp Pro 7 Str",
+                    "2.0 Smart Pro Diesel",
+                    "1.5 Turbo Sharp Pro CVT",
+                    "1.5 Turbo Sharp Pro CVT 7 Str",
+                    "2.0 Sharp Pro 7 Str Diesel",
+                    "2.0 Sharp Pro Diesel",
+                    "1.5 Turbo Savvy Pro CVT",
+                    "1.5 Turbo Savvy Pro CVT 7 Str"
+                ]
+            },
+            {
+                "model": "ZS EV",
+                "versions": [
+                    "Executive",
+                    "Excite Pro",
+                    "Exclusive Plus",
+                    "Exclusive Plus DT",
+                    "Essence",
+                    "Essence DT"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "Skoda",
+        "model": ["Kushaq", "Slavia", "Kodiaq"],
+        "variant": [
+            {
+                "model": "Kushaq",
+                "versions": [
+                    "1.0 TSI Active",
+                    "1.0 TSI Onyx",
+                    "1.0 TSI Ambition",
+                    "1.0 TSI Ambition AT",
+                    "1.0 TSI Style Non Sunroof",
+                    "1.5 TSI Ambition",
+                    "1.0 TSI Matte Edition",
+                    "1.0 TSI Style",
+                    "1.0 TSI Monte Carlo",
+                    "1.5 TSI Ambition DSG",
+                    "1.0 TSI Matte Edition AT",
+                    "1.0 TSI Style AT",
+                    "1.5 TSI Matte Edition",
+                    "1.5 TSI Elegance Edition",
+                    "1.5 TSI Style",
+                    "1.0 TSI Monte Carlo AT",
+                    "1.5 TSI Monte Carlo",
+                    "1.5 TSI Matte Edition DSG",
+                    "1.5 TSI Elegance Edition DSG",
+                    "1.5 TSI Style DSG",
+                    "1.5 TSI Monte Carlo DSG"
+                ]
+            },
+            {
+                "model": "Slavia",
+                "versions": [
+                    "1.0 TSI Active",
+                    "1.0 TSI Ambition Plus",
+                    "1.0 TSI Ambition",
+                    "1.0 TSI Style Non-Sunroof",
+                    "1.0 TSI Ambition AT",
+                    "1.5 TSI Ambition",
+                    "1.0 TSI Style Matte",
+                    "1.0 TSI Style",
+                    "1.5 TSI Ambition DSG DT",
+                    "1.0 TSI Style Matte AT",
+                    "1.0 TSI Style AT",
+                    "1.5 TSI Style",
+                    "1.5 TSI Elegance Edition",
+                    "1.5 TSI Style Matte",
+                    "1.5 TSI Style DSG Dual Tone",
+                    "1.5 TSI Elegance Edition DSG",
+                    "1.5 TSI Style Matte DSG",
+                    "1.5 Style Edition DSG"
+                ]
+            },
+            {
+                "model": "Kodiaq",
+                "versions": ["Style", "Sportline", "L & K"]
+            }
+        ]
+    },
+    {
+        "brand": "Jeep",
+        "model": ["Compass"],
+        "variant": [
+            {
+                "model": "Compass",
+                "versions": [
+                    "2.0 Sport",
+                    "2.0 Longitude Opt",
+                    "2.0 Limited Opt",
+                    "2.0 Longitude Opt AT",
+                    "2.0 Black Shark Opt",
+                    "2.0 Limited Opt FWD AT",
+                    "2.0 Model S Opt",
+                    "2.0 Black Shark Opt FWD AT",
+                    "2.0 Model S Opt FWD AT",
+                    "2.0 Model S Opt 4x4 AT"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "Renault",
+        "model": ["Triber", "KWID", "Kiger"],
+        "variant": [
+            {
+                "model": "Triber",
+                "versions": [
+                    "RXE",
+                    "RXL",
+                    "RXT",
+                    "RXT EASY-R AMT",
+                    "RXZ",
+                    "RXZ Dual Tone",
+                    "RXZ EASY-R AMT",
+                    "RXZ EASY-R AMT Dual Tone"
+                ]
+            },
+            {
+                "model": "KWID",
+                "versions": [
+                    "1.0 RXE",
+                    "1.0 RXL Opt",
+                    "1.0 RXL Opt AMT",
+                    "1.0 RXT",
+                    "CLIMBER",
+                    "1.0 RXT AMT",
+                    "CLIMBER DT",
+                    "CLIMBER AMT",
+                    "CLIMBER DT AMT"
+                ]
+            },
+            {
+                "model": "Kiger",
+                "versions": [
+                    "RXE",
+                    "RXL",
+                    "RXL AMT",
+                    "RXT",
+                    "RXT AMT",
+                    "RXT Opt",
+                    "RXT Opt DT",
+                    "RXT AMT Opt",
+                    "RXT AMT Opt DT",
+                    "RXZ",
+                    "RXZ DT",
+                    "RXT Opt Turbo",
+                    "RXZ AMT",
+                    "RXT Opt Turbo DT",
+                    "RXZ AMT DT",
+                    "RXZ Turbo",
+                    "RXT Opt Turbo CVT",
+                    "RXZ Turbo DT",
+                    "RXT Opt Turbo CVT DT",
+                    "RXZ Turbo CVT",
+                    "RXZ Turbo CVT DT"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "Nissan",
+        "model": ["Magnite"],
+        "variant": [
+            {
+                "model": "Magnite",
+                "versions": [
+                    "XE",
+                    "XE AMT",
+                    "XL",
+                    "Geza Edition",
+                    "XL AMT",
+                    "XV",
+                    "XV DT",
+                    "XV Red Edition",
+                    "XV AMT",
+                    "Kuro MT",
+                    "XV AMT DT",
+                    "XV Premium",
+                    "Kuro AMT",
+                    "XV Premium DT",
+                    "XV Premium AMT",
+                    "XV Premium AMT DT",
+                    "Turbo XV",
+                    "Turbo XV DT",
+                    "Turbo XV Red Edition",
+                    "Kuro Turbo",
+                    "Turbo XV Premium",
+                    "Turbo XV Premium DT",
+                    "Turbo XV Premium Opt",
+                    "Turbo XV Premium Opt DT",
+                    "Turbo CVT XV",
+                    "Turbo CVT XV DT",
+                    "Turbo CVT XV Red Edition",
+                    "Kuro Turbo CVT",
+                    "Turbo CVT XV Premium",
+                    "Turbo CVT XV Premium DT",
+                    "Turbo CVT XV Premium Opt",
+                    "Turbo CVT XV Premium Opt DT"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "Volkswagen",
+        "model": ["Virtus", "Taigun"],
+        "variant": [
+            {
+                "model": "Virtus",
+                "versions": [
+                    "Comfortline",
+                    "Highline",
+                    "Highline AT",
+                    "Topline",
+                    "Topline ES",
+                    "Topline Sound Edition",
+                    "Topline AT",
+                    "GT DSG",
+                    "Topline AT ES",
+                    "Topline Sound Edition AT",
+                    "GT Plus",
+                    "GT Plus Edge",
+                    "GT Plus ES",
+                    "GT Plus Edge ES",
+                    "GT Plus Edge Matte",
+                    "GT Plus DSG",
+                    "GT Plus Edge DSG",
+                    "GT Plus DSG ES",
+                    "GT Plus Edge DSG ES",
+                    "GT Plus Edge Matte DSG"
+                ]
+            },
+            {
+                "model": "Taigun",
+                "versions": [
+                    "1.0 TSI Comfortline",
+                    "1.0 TSI Highline",
+                    "1.0 TSI Highline AT",
+                    "1.0 TSI Topline",
+                    "1.0 TSI Topline ES",
+                    "1.0 TSI Topline Sound Edition",
+                    "GT Edge Trail Edition",
+                    "1.5 TSI GT",
+                    "1.5 TSI GT DSG",
+                    "1.0 TSI Topline AT",
+                    "1.0 TSI Topline AT ES",
+                    "1.0 TSI Topline AT Sound Edition",
+                    "1.5 TSI GT Plus",
+                    "1.5 GT Plus Edge",
+                    "1.5 GT Plus Edge Matte",
+                    "1.5 TSI GT Plus ES",
+                    "1.5 GT Plus Edge ES",
+                    "1.5 GT Plus Edge Matte ES",
+                    "1.5 TSI GT Plus DSG Ventilated Seat",
+                    "1.5 GT Plus Edge DSG",
+                    "1.5 GT Plus Edge Matte DSG",
+                    "1.5 TSI GT Plus DSG ES",
+                    "1.5 GT Plus Edge DSG ES",
+                    "1.5 GT Plus Edge Matte DSG ES"
+                ]
+            }
+        ]
+    },
+    {
+        "brand": "Citroen",
+        "model": ["C3", "C3 Aircross", "eC3", "C5 Aircross"],
+        "variant": [
+            {
+                "model": "C3",
+                "versions": [
+                    "Puretech 82 Live",
+                    "Puretech 82 Feel",
+                    "Puretech 82 Feel DT",
+                    "Puretech 82 Shine",
+                    "Puretech 82 Shine DT",
+                    "Feel Dual Tone Turbo",
+                    "Shine Dual Tone Turbo"
+                ]
+            },
+            {
+                "model": "C3 Aircross",
+                "versions": [
+                    "You",
+                    "Plus",
+                    "Plus DT",
+                    "Plus 7 Seater",
+                    "Plus 7 Seater DT",
+                    "Max",
+                    "Max DT",
+                    "Max 7 Seater",
+                    "Max 7 Seater DT",
+                    "Plus AT",
+                    "Plus AT DT",
+                    "Max AT",
+                    "Max AT DT",
+                    "Max AT 7 Seater",
+                    "Max AT 7 Seater DT"
+                ]
+            },
+            {
+                "model": "eC3",
+                "versions": ["Live", "Feel", "Feel DT", "Shine", "Shine DT"]
+            },
+            {
+                "model": "C5 Aircross",
+                "versions": [
+                    "Feel",
+                    "Feel Dual Tone",
+                    "Shine Dual Tone",
+                    "Shine"
+                ]
+            }
+        ]
+    }
+]

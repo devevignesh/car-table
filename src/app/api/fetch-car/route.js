@@ -4,12 +4,9 @@ import cheerio from "cheerio";
 import { properties } from "@/lib/selectors";
 
 export async function POST(req, res) {
-    const { brand, model, variant, fuelType } = await req.json();
+    const { brand, model, variant } = await req.json();
     // const URL = "https://www.cardekho.com/overview/Tata_Nexon/Tata_Nexon_Creative.htm";
-    const URL =
-        `https://www.cardekho.com/overview/${brand}_${model}/${brand}_${model}_${variant}` +
-        (fuelType === "petrol" ? `_${fuelType}` : "") +
-        `.htm`;
+    const URL = `https://www.cardekho.com/overview/${brand}_${model}/${brand}_${model}_${variant}.htm`;
 
     try {
         const browser = await puppeteer.launch();

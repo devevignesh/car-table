@@ -29,6 +29,12 @@ export const properties = [
         type: "text"
     },
     {
+        name: "fuelType",
+        selector:
+            "#specification > div > table > tbody > tr:nth-child(2) > td.right > span",
+        type: "text"
+    },
+    {
         name: "maxPower",
         selector:
             "#scrollDiv > table:nth-child(2) > tbody > tr:nth-child(3) > td:nth-child(2) > span",

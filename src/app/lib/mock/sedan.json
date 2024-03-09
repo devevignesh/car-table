@@ -1,7 +1,7 @@
 [
     {
         "brand": "Honda",
-        "price": "1160000",
+        "price": "Rs.11,60,000",
         "model": "City",
         "type": "Sedan",
         "variant": "SV",
@@ -40,7 +40,7 @@
     },
     {
         "brand": "Hyundai",
-        "price": "1196000",
+        "price": "Rs.11,96,000",
         "model": "Verna",
         "type": "Sedan",
         "variant": "S1.5 VTVT",
