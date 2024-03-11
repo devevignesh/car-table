@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Header() {
     return (
         <header className="flex w-full mt-3 border-b pb-7 sm:px-4 px-2 gap-2">
-            {/* <Link href="/" className="flex items-center space-x-3">
+            <Link href="/" className="flex items-center space-x-3">
                 <Image
                     alt="header text"
                     src="/_static/car.svg"
@@ -14,7 +14,7 @@ export default function Header() {
                     height={25}
                 />
                 <div className="ml-2 text-2xl font-bold tracking-tight sm:text-4xl text-slate-900">Car Table</div>
-            </Link> */}
+            </Link>
         </header>
     );
 }
